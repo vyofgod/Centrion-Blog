@@ -189,20 +189,19 @@ body:has(.profile) {
     margin: 0 !important;
     line-height: 1.15 !important;
     color: var(--primary) !important;
-    overflow: hidden !important;
-    border-right: 3px solid var(--primary) !important;
-    white-space: nowrap !important;
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite !important;
+    min-height: 3.5rem !important;
+    display: inline-block !important;
 }
 
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+.profile .profile_inner h1::after {
+    content: '|' !important;
+    animation: blink-caret 0.75s step-end infinite !important;
+    margin-left: 5px !important;
 }
 
 @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: var(--primary); }
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .profile .profile_inner span {
