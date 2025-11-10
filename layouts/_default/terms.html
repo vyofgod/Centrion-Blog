@@ -1,0 +1,66 @@
+{{- define "main" }}
+
+{{- if .Title }}
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- else }}
+    <div class="post-description">
+        {{ if eq .Type "categories" }}
+        Explore blog posts by topic. Each category offers detailed content on related subjects.
+        {{ else }}
+        Browse all tags and filter posts by topics that interest you.
+        {{ end }}
+    </div>
+    {{- end }}
+</header>
+{{- end }}
+
+<div class="categories-container">
+    {{- $type := .Type }}
+    {{- range $key, $value := .Data.Terms.Alphabetical }}
+    {{- $name := .Name }}
+    {{- $count := .Count }}
+    {{- with site.GetPage (printf "/%s/%s" $type $name) }}
+    <div class="category-card">
+        <div class="category-header">
+            <h2 class="category-title">
+                <a href="{{ .Permalink }}">{{ .Name }}</a>
+            </h2>
+            <span class="category-count">{{ $count }} {{ if eq $count 1 }}post{{ else }}posts{{ end }}</span>
+        </div>
+        <div class="category-content">
+            {{- $description := "" }}
+            {{- if eq $name "Network Security" }}
+                {{- $description = "Content about network infrastructure, VPN usage, secure connections, and network protection methods." }}
+            {{- else if eq $name "Cloud Security" }}
+                {{- $description = "Cloud computing security, data protection strategies, and secure use of cloud-based solutions." }}
+            {{- else if eq $name "Basic Security" }}
+                {{- $description = "Cybersecurity fundamentals, beginner-level security measures, and daily digital security practices." }}
+            {{- else if eq $name "Data Protection" }}
+                {{- $description = "Data security, encryption techniques, personal data protection, and privacy topics." }}
+            {{- else if eq $name "Malware" }}
+                {{- $description = "Types of malware, defense methods against malicious software, and security software." }}
+            {{- else }}
+                {{- $description = printf "This category contains %d %s." $count (cond (eq $count 1) "post" "posts") }}
+            {{- end }}
+            <p class="category-description">{{ $description }}</p>
+        </div>
+        <div class="category-footer">
+            <a href="{{ .Permalink }}" class="category-link">
+                View Posts
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+    {{- end }}
+    {{- end }}
+</div>
+
+{{- end }}{{/* end main */ -}}
+

@@ -1,0 +1,25 @@
+{{- /* Load Google Fonts */ -}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+{{- /* Load search scripts globally for search modal */ -}}
+<link crossorigin="anonymous" rel="preload" as="fetch" href="{{ "index.json" | absURL }}">
+{{- $fastsearch := resources.Get "js/fastsearch.js" | js.Build (dict "params" (dict "fuseOpts" site.Params.fuseOpts)) | resources.Minify }}
+{{- $fusejs := resources.Get "js/fuse.basic.min.js" }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $search := (slice $fusejs $fastsearch ) | resources.Concat "assets/js/search.js" | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
+{{- else }}
+{{- $search := (slice $fusejs $fastsearch ) | resources.Concat "assets/js/search.js" }}
+<script defer crossorigin="anonymous" src="{{ $search.RelPermalink }}"></script>
+{{- end }}
+
+{{- /* Load animations script */ -}}
+{{- $animations := resources.Get "js/animations.js" | resources.Minify }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $animations = $animations | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $animations.RelPermalink }}" integrity="{{ $animations.Data.Integrity }}"></script>
+{{- else }}
+<script defer crossorigin="anonymous" src="{{ $animations.RelPermalink }}"></script>
+{{- end }}

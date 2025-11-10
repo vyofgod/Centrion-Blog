@@ -1,0 +1,1310 @@
+/* Increase site width for better desktop viewing */
+:root {
+    --main-width: 1200px;
+    --nav-width: 1400px;
+}
+
+/* ============================================
+   ANIMATIONS & TRANSITIONS
+   ============================================ */
+
+/* Smooth scrolling for the entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Page transition - fade in on load */
+body {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Scroll reveal animation */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation for multiple elements */
+.scroll-reveal:nth-child(1) { transition-delay: 0.1s; }
+.scroll-reveal:nth-child(2) { transition-delay: 0.2s; }
+.scroll-reveal:nth-child(3) { transition-delay: 0.3s; }
+.scroll-reveal:nth-child(4) { transition-delay: 0.4s; }
+.scroll-reveal:nth-child(5) { transition-delay: 0.5s; }
+
+/* Slide in from left animation */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide in from right animation */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scale up animation */
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Bounce animation for interactive elements */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* Global typography improvements */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Better overall page structure */
+#content {
+    padding-top: 0.75rem !important;
+}
+
+.main {
+    padding: 1.5rem var(--gap) !important;
+    margin-top: 0 !important;
+    max-width: calc(var(--main-width) + var(--gap) * 2) !important;
+}
+
+/* Hide profile avatar on home; keep only the "Hi, I'm ..." text */
+.profile-section img,
+.profile img {
+    display: none !important;
+}
+
+/* Enhanced profile section design */
+.profile {
+    padding: 3rem 0 2rem 0 !important;
+    margin-top: 0 !important;
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.profile .profile_inner {
+    gap: 0.75rem !important;
+}
+
+.profile .profile_inner h1 {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+}
+
+.profile .profile_inner span {
+    font-size: 1rem !important;
+    color: var(--secondary) !important;
+    opacity: 0.85 !important;
+    font-weight: 400 !important;
+    margin: 0 !important;
+}
+
+.profile .social-icons {
+    margin-top: 1.5rem !important;
+    margin-bottom: 0 !important;
+    animation: slideInUp 0.8s ease-out 0.3s both;
+}
+
+.profile .social-icons a {
+    transition: all 0.25s ease !important;
+    position: relative;
+}
+
+.profile .social-icons a::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.25s ease;
+    z-index: -1;
+}
+
+.profile .social-icons a:hover {
+    transform: translateY(-2px);
+    opacity: 0.85;
+}
+
+.profile .social-icons a:hover::before {
+    opacity: 0.08;
+    transform: scale(1);
+}
+
+.profile .social-icons a:active {
+    transform: translateY(0);
+}
+
+/* Modern header design */
+.header {
+    padding-top: 0 !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    animation: slideInDown 0.5s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header .nav {
+    padding: 0.25rem 0 !important;
+    margin-top: 0 !important;
+}
+
+.logo {
+    margin-top: 0 !important;
+}
+
+.logo a {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+    transition: opacity 0.2s ease;
+}
+
+.logo a:hover {
+    opacity: 0.8;
+}
+
+/* Better navigation menu */
+#menu {
+    gap: 0.85rem !important;
+    align-items: center;
+}
+
+#menu li {
+    display: flex;
+    align-items: center;
+}
+
+#menu li + li {
+    margin-inline-start: 0rem !important;
+}
+
+#menu li a {
+    font-weight: 500 !important;
+    font-size: 0.95rem !important;
+    transition: all 0.2s ease;
+    padding: 0.5rem 0;
+    color: var(--primary);
+    position: relative;
+    opacity: 0.85;
+    text-decoration: none; /* prevent native underline to avoid double lines */
+}
+
+/* Underline effect only for regular anchor links with href */
+#menu li a[href]::after {
+    content: '';
+    position: absolute;
+    bottom: 1.3rem !important; /* tighter gap under text */
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+#menu li a:hover {
+    opacity: 1;
+    text-decoration: none; /* keep native underline disabled on hover */
+}
+
+/* Also ensure no native underline on focus/active states */
+#menu li a:focus,
+#menu li a:active {
+    text-decoration: none;
+}
+
+#menu li a[href]:hover::after {
+    width: 100%;
+}
+
+#menu li a span.active {
+    font-weight: 600;
+    opacity: 1;
+}
+
+/* Prevent double underline: remove default border-bottom on active nav items */
+#menu .active {
+    border-bottom: none !important;
+}
+
+/* Prevent underline effect on all buttons in menu */
+#menu button::after {
+    display: none !important;
+}
+
+/* Theme toggle button - clean minimal design */
+#theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.85;
+    margin-left: 0.5rem;
+    position: relative;
+    border-radius: 50%;
+}
+
+/* Prevent underline effect on theme toggle */
+#theme-toggle::after {
+    display: none !important;
+}
+
+#theme-toggle::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+#theme-toggle:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+#theme-toggle:hover::before {
+    opacity: 0.1;
+    transform: scale(1);
+}
+
+#theme-toggle svg {
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#theme-toggle:hover svg {
+    transform: rotate(180deg) scale(1.1);
+}
+
+#theme-toggle:active {
+    transform: scale(0.95);
+}
+
+#theme-toggle:active svg {
+    transform: rotate(360deg) scale(0.9);
+}
+
+/* Clean minimalist blog post card design */
+.post-entry {
+    position: relative;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem 2.25rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: scaleUp 0.5s ease-out forwards;
+}
+
+.post-entry:hover {
+    border-color: var(--primary);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px) scale(1.01);
+}
+
+.post-entry .entry-header {
+    margin-bottom: 0.85rem;
+}
+
+.post-entry .entry-header h2 {
+    font-size: 1.5rem;
+    font-weight: 650;
+    line-height: 1.35;
+    margin: 0 0 0.5rem 0;
+    color: var(--primary);
+    transition: color 0.2s ease;
+    letter-spacing: -0.01em;
+}
+
+.post-entry:hover .entry-header h2 {
+    color: var(--primary);
+    opacity: 0.85;
+}
+
+.post-entry .entry-content {
+    color: var(--secondary);
+    line-height: 1.7;
+    margin: 0.85rem 0;
+    font-size: 0.97rem;
+    opacity: 0.9;
+}
+
+.post-entry .entry-footer {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.87rem;
+    color: var(--secondary);
+    opacity: 0.75;
+}
+
+/* Reduce spacing in main content area */
+.main {
+    padding: 0.5rem var(--gap) !important;
+    margin-top: 0 !important;
+    max-width: calc(var(--main-width) + var(--gap) * 2) !important;
+}
+
+/* Increase logo size */
+.logo a img,
+.logo a svg {
+    height: 45px !important;
+    width: auto !important;
+    vertical-align: 0 !important; /* reset value to prevent moving the cat too high up */
+}
+
+/* Move only the logo graphic up without affecting the label text */
+.logo a img,
+.logo a svg {
+    transform: translateY(-8px);
+}
+
+/* Slightly enlarge the cat.gif in the header only */
+.logo img[src="/cat.gif"] {
+    height: 48px !important;
+    width: auto !important;
+    margin-right: 10px !important;
+    vertical-align: middle !important;
+}
+
+.logo a {
+    font-size: 46px !important;
+    font-weight: 1500 !important;
+}
+
+/* Tighten up the navigation menu spacing */
+#menu {
+    gap: 0.85rem !important;
+}
+
+/* Reduce spacing between profile elements */
+.profile {
+    padding: 0.5rem 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Move profile section higher */
+.profile-section {
+    margin-top: 0 !important;
+    padding-top: 0.5rem !important;
+}
+
+/* Compact profile inner spacing */
+.profile_inner {
+    gap: 0.4rem !important;
+}
+
+.profile_inner h1 {
+    margin: 0.1rem 0 !important;
+}
+
+.profile_inner span {
+    margin-bottom: 0.1rem !important;
+}
+
+/* Reduce spacing between social icons and posts section */
+.profile .social-icons {
+    margin-top: 0.1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Reduce spacing in profile section container */
+.profile-section {
+    margin-bottom: 0.5rem !important;
+}
+
+/* Reduce spacing before "Posts" heading */
+.main .main-inner {
+    margin-top: 0 !important;
+}
+
+/* Compact spacing after profile section */
+.profile + .main {
+    margin-top: 0!important;
+    padding-top: 0 !important;
+}
+
+/* Move entire page content higher */
+#content {
+    padding-top: 0.5rem !important;
+}
+
+/* Compact post metadata */
+.post-meta {
+    margin: 0.5rem 0 !important;
+}
+
+/* Reduce spacing in post content */
+.post-content {
+    margin-top: 1rem !important;
+}
+
+/* Enhanced tag styling */
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1rem 0 0;
+}
+
+.post-tags a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--code-bg);
+    color: var(--secondary);
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1.25;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: scaleUp 0.4s ease-out forwards;
+}
+
+.post-tags a:nth-child(1) { animation-delay: 0.1s; }
+.post-tags a:nth-child(2) { animation-delay: 0.15s; }
+.post-tags a:nth-child(3) { animation-delay: 0.2s; }
+.post-tags a:nth-child(4) { animation-delay: 0.25s; }
+.post-tags a:nth-child(5) { animation-delay: 0.3s; }
+
+.post-tags a:hover {
+    background: var(--primary);
+    color: var(--theme);
+    border-color: var(--primary);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Better section headers */
+.posts-header h2,
+.page-header h1,
+.entry-header h1 {
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.25 !important;
+}
+
+/* Pagination improvements */
+.pagination {
+    margin-top: 3rem !important;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pagination a,
+.pagination span {
+    border-radius: 8px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    padding: 0.75rem 1.5rem !important;
+    font-weight: 500 !important;
+    font-size: 0.95rem !important;
+    background: var(--entry) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--primary) !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.pagination a:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important;
+    border-color: var(--primary) !important;
+    background: var(--code-bg) !important;
+}
+
+.pagination a:active {
+    transform: translateY(-1px) scale(0.98) !important;
+}
+
+/* Disabled pagination buttons */
+.pagination span.disabled {
+    opacity: 0.4 !important;
+    cursor: not-allowed !important;
+}
+
+/* Responsive pagination */
+@media (max-width: 768px) {
+    .pagination {
+        gap: 0.75rem;
+    }
+    
+    .pagination a,
+    .pagination span {
+        padding: 0.6rem 1.2rem !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Dark mode support for post cards */
+@media (prefers-color-scheme: dark) {
+    .post-entry:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Categories Page Styles */
+.categories-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.category-card {
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: scaleUp 0.6s ease-out forwards;
+}
+
+.category-card:nth-child(1) { animation-delay: 0.1s; }
+.category-card:nth-child(2) { animation-delay: 0.2s; }
+.category-card:nth-child(3) { animation-delay: 0.3s; }
+.category-card:nth-child(4) { animation-delay: 0.4s; }
+
+.category-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary);
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.category-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    flex: 1;
+}
+
+.category-title a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.category-title a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+.category-count {
+    background: var(--code-bg);
+    color: var(--secondary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.category-content {
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.category-description {
+    color: var(--secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.category-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.category-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.category-link:hover {
+    color: var(--secondary);
+    gap: 0.75rem;
+}
+
+.category-link svg {
+    transition: transform 0.2s ease;
+}
+
+.category-link:hover svg {
+    transform: translateX(4px);
+}
+
+/* Hide old terms-tags list if it exists */
+.terms-tags {
+    display: none;
+}
+
+/* Responsive design for categories */
+@media (max-width: 768px) {
+    .categories-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .category-card {
+        padding: 1.25rem;
+    }
+    
+    .category-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .category-count {
+        align-self: flex-start;
+    }
+}
+
+/* Dark mode support for categories */
+@media (prefers-color-scheme: dark) {
+    .category-card {
+        background: var(--entry);
+        border-color: var(--border);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .category-card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+    
+    .category-count {
+        background: var(--code-bg);
+        color: var(--secondary);
+    }
+}
+
+/* Adjust spacing for the "Writings" section header on home */
+.posts-section .posts-header h2 {
+    margin-top: -0.1rem !important;
+}
+
+/* Home profile redesign overrides */
+.main .profile {
+    min-height: unset !important;
+    padding-top: 0.5rem !important;
+}
+
+/* Larger circular avatar with subtle glow */
+.profile-section img,
+.profile img {
+    width: 180px !important;
+    height: 180px !important;
+    border-radius: 50% !important;
+    border: 4px solid var(--theme) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 0 0 4px color-mix(in oklab, var(--theme) 20%, transparent) !important;
+}
+
+/* Stronger, nicer heading typography */
+.profile-section h1,
+.profile .profile_inner h1 {
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.2px !important;
+}
+
+/* Cleaner subtitle */
+.profile-section .subtitle,
+.profile .profile_inner span {
+    font-size: 1rem !important;
+    color: var(--secondary) !important;
+    opacity: 0.9 !important;
+}
+
+/* Tighter spacing between name and subtitle */
+.profile .profile_inner {
+    gap: 0.6rem !important;
+}
+
+/* Comprehensive responsive design */
+@media (max-width: 768px) {
+    /* Profile adjustments */
+    .profile .profile_inner h1 {
+        font-size: 2rem !important;
+    }
+
+    .profile .profile_inner span {
+        font-size: 1rem !important;
+    }
+    
+    .profile {
+        padding: 2rem 0 1.5rem 0 !important;
+    }
+    
+    /* Post card adjustments */
+    .post-entry {
+        padding: 1.5rem !important;
+        margin-bottom: 1.25rem;
+    }
+    
+    .post-entry .entry-header h2 {
+        font-size: 1.3rem !important;
+    }
+    
+    .post-entry .entry-content {
+        font-size: 0.93rem !important;
+    }
+    
+    /* Header adjustments */
+    .logo a {
+        font-size: 1.2rem !important;
+    }
+    
+    #menu {
+        gap: 1rem !important;
+    }
+    
+    #menu li a {
+        font-size: 0.9rem !important;
+        padding: 0.4rem 0;
+    }
+    
+    #search-button {
+        padding: 0.4rem 0;
+        font-size: 0.9rem;
+    }
+    
+    #theme-toggle {
+        padding: 0.4rem;
+        margin-left: 0.35rem;
+    }
+    
+    /* Main content padding */
+    .main {
+        padding: 1rem var(--gap) !important;
+    }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .post-entry {
+        padding: 1.75rem 2rem;
+    }
+    
+    .profile .profile_inner h1 {
+        font-size: 2.25rem !important;
+    }
+}
+
+/* Search button styling - clean minimal design */
+#search-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    transition: all 0.2s ease;
+    line-height: 1;
+    opacity: 0.85;
+    position: relative;
+}
+
+/* Prevent underline effect on search button */
+#search-button::after {
+    display: none !important;
+}
+
+#search-button:hover {
+    opacity: 1;
+}
+
+#search-button svg {
+    stroke: currentColor;
+    transition: transform 0.2s ease;
+}
+
+#search-button:hover svg {
+    transform: scale(1.1);
+}
+
+#search-button span {
+    display: none;
+}
+
+#search-button {
+    gap: 0;
+}
+
+/* Search Modal Styles */
+.search-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.search-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease;
+}
+
+.search-modal-content {
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.search-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+}
+
+.search-modal-header svg:first-child {
+    color: var(--secondary);
+    flex-shrink: 0;
+}
+
+#searchInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-family: inherit;
+}
+
+#searchInput::placeholder {
+    color: var(--secondary);
+    opacity: 0.6;
+}
+
+#search-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+    transition: all 0.2s ease;
+}
+
+#search-close:hover {
+    background: var(--code-bg);
+    color: var(--primary);
+}
+
+/* Search results container in modal */
+#searchResults {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px;
+    overflow-y: auto;
+    border-top: 1px solid var(--border);
+}
+
+#searchResults:empty {
+    display: none;
+}
+
+#searchResults li {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInRight 0.3s ease-out forwards;
+}
+
+#searchResults li:nth-child(1) { animation-delay: 0.05s; }
+#searchResults li:nth-child(2) { animation-delay: 0.1s; }
+#searchResults li:nth-child(3) { animation-delay: 0.15s; }
+#searchResults li:nth-child(4) { animation-delay: 0.2s; }
+#searchResults li:nth-child(5) { animation-delay: 0.25s; }
+
+#searchResults li.post-entry {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+    box-shadow: none;
+}
+
+#searchResults li.post-entry:last-child {
+    border-bottom: none;
+}
+
+#searchResults li.post-entry:hover {
+    background: var(--code-bg);
+    transform: translateX(4px);
+    padding-left: 1.75rem;
+}
+
+#searchResults li.post-entry .entry-header {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+#searchResults li.post-entry a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-decoration: none;
+}
+
+#searchResults li.focus {
+    background: var(--code-bg);
+}
+
+/* Custom scrollbar for search results */
+#searchResults::-webkit-scrollbar {
+    width: 8px;
+}
+
+#searchResults::-webkit-scrollbar-track {
+    background: var(--entry);
+}
+
+#searchResults::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+#searchResults::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+/* Responsive adjustments for search modal */
+@media (max-width: 768px) {
+    .search-modal-content {
+        top: 3rem;
+        width: 95%;
+    }
+    
+    .search-modal-header {
+        padding: 1rem;
+    }
+    
+    #searchInput {
+        font-size: 1rem;
+    }
+    
+    #searchResults {
+        max-height: 300px;
+    }
+}
+
+/* Language Switcher Styles */
+.lang-switch {
+    display: flex;
+    align-items: center;
+}
+
+.lang-switch a {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: var(--theme);
+    border: 1px solid var(--border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.lang-switch a:hover {
+    background: var(--code-bg);
+    border-color: var(--primary);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lang-switch a:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.lang-switch a span {
+    color: var(--primary);
+    transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .lang-switch a {
+        padding: 4px 8px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================
+   ADDITIONAL ANIMATION UTILITIES
+   ============================================ */
+
+/* Floating animation for special elements */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient animation for backgrounds */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Glow effect */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(var(--primary-rgb, 0, 0, 0), 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(var(--primary-rgb, 0, 0, 0), 0.8);
+    }
+}
+
+/* Shake animation for errors */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Rotate animation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Blink animation */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, input, textarea, select {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .scroll-reveal {
+        opacity: 1;
+        transform: none;
+    }
+}

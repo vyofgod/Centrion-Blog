@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cybersecurity on Centrion</title>
+    <link>http://localhost:1313/tags/cybersecurity/</link>
+    <description>Recent content in Cybersecurity on Centrion</description>
+    <image>
+      <title>Centrion</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>tr</language>
+    <lastBuildDate>Sun, 09 Nov 2025 00:21:00 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Penetration Testing Basics</title>
+      <link>http://localhost:1313/en/posts/sizma-testi-temelleri/</link>
+      <pubDate>Sun, 09 Nov 2025 00:21:00 +0300</pubDate>
+      <guid>http://localhost:1313/en/posts/sizma-testi-temelleri/</guid>
+      <description>Comprehensive guide on penetration testing (pentest) basics, methodologies, and tools.</description>
+    </item>
+    <item>
+      <title>Advanced Network Security</title>
+      <link>http://localhost:1313/en/posts/ileri-duzey-ag-guvenligi/</link>
+      <pubDate>Sun, 09 Nov 2025 00:20:00 +0300</pubDate>
+      <guid>http://localhost:1313/en/posts/ileri-duzey-ag-guvenligi/</guid>
+      <description>Comprehensive guide on advanced network security concepts, threats, and protection methods.</description>
+    </item>
+    <item>
+      <title>Defense Against Malware</title>
+      <link>http://localhost:1313/en/posts/zararli-yazilimlara-karsi-savunma/</link>
+      <pubDate>Sun, 09 Nov 2025 00:17:00 +0300</pubDate>
+      <guid>http://localhost:1313/en/posts/zararli-yazilimlara-karsi-savunma/</guid>
+      <description>Comprehensive guide on malware types, infection methods, and protection methods.</description>
+    </item>
+    <item>
+      <title>Network Security and VPN Usage</title>
+      <link>http://localhost:1313/en/posts/ag-guvenligi-ve-vpn/</link>
+      <pubDate>Sun, 09 Nov 2025 00:16:00 +0300</pubDate>
+      <guid>http://localhost:1313/en/posts/ag-guvenligi-ve-vpn/</guid>
+      <description>Comprehensive guide on securing your home and business networks and the importance of VPN usage.</description>
+    </item>
+    <item>
+      <title>Fundamentals of Internet Security</title>
+      <link>http://localhost:1313/en/posts/internet-guvenligi-temelleri/</link>
+      <pubDate>Sun, 09 Nov 2025 00:14:00 +0300</pubDate>
+      <guid>http://localhost:1313/en/posts/internet-guvenligi-temelleri/</guid>
+      <description>Basic internet security tips and safe digital habits for beginners.</description>
+    </item>
+    <item>
+      <title>Basic Cybersecurity Measures</title>
+      <link>http://localhost:1313/en/posts/ilk-yazi/</link>
+      <pubDate>Sun, 09 Nov 2025 00:12:00 +0300</pubDate>
+      <guid>http://localhost:1313/en/posts/ilk-yazi/</guid>
+      <description>Basic cybersecurity measures and tips you can apply in your daily digital life.</description>
+    </item>
+  </channel>
+</rss>

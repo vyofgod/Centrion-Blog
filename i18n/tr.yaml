@@ -1,0 +1,28 @@
+- id: prev_page
+  translation: "← Önceki"
+- id: next_page
+  translation: "Sonraki →"
+- id: read_time
+  translation:
+    one: "1 dk"
+    other: "{{ .Count }} dk"
+- id: words
+  translation:
+    one: "sözcük"
+    other: "{{ .Count }} sözcük"
+- id: toc
+  translation: "İçindekiler"
+- id: translations
+  translation: "Çeviriler"
+- id: home
+  translation: "Ana Sayfa"
+- id: edit
+  translation: "Düzenle"
+- id: code_copy
+  translation: "Kopyala"
+- id: code_copied
+  translation: "Kopyalandı!"
+- id: search_placeholder
+  translation: "Ara..."
+- id: search_no_results
+  translation: "Sonuç bulunamadı"

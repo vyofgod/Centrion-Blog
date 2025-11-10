@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Data Security on Centrion</title>
+    <link>http://localhost:1313/tags/data-security/</link>
+    <description>Recent content in Data Security on Centrion</description>
+    <image>
+      <title>Centrion</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>tr</language>
+    <lastBuildDate>Sun, 09 Nov 2025 00:22:00 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/data-security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Security and Data Protection</title>
+      <link>http://localhost:1313/en/posts/bulut-guvenligi-ve-veri-koruma/</link>
+      <pubDate>Sun, 09 Nov 2025 00:22:00 +0300</pubDate>
+      <guid>http://localhost:1313/en/posts/bulut-guvenligi-ve-veri-koruma/</guid>
+      <description>Comprehensive guide on security measures in cloud computing, data protection strategies, and best practices.</description>
+    </item>
+    <item>
+      <title>Methods to Protect Your Personal Data</title>
+      <link>http://localhost:1313/en/posts/kisisel-veri-guvenligi/</link>
+      <pubDate>Sun, 09 Nov 2025 00:15:00 +0300</pubDate>
+      <guid>http://localhost:1313/en/posts/kisisel-veri-guvenligi/</guid>
+      <description>Effective methods and privacy tips you can apply to protect your personal data.</description>
+    </item>
+  </channel>
+</rss>
