@@ -15,7 +15,9 @@ html {
 
 /* Page transition - fade in on load */
 body {
-    animation: fadeIn 0.5s ease-in;
+    opacity: 1;
+    background: var(--theme);
+    min-height: 100vh;
 }
 
 @keyframes fadeIn {

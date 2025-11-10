@@ -47,7 +47,7 @@ params:
   comments: false
   hidemeta: false
   hideSummary: false
-  showtoc: false
+  showtoc: true
   tocopen: false
 
   assets:
@@ -66,13 +66,20 @@ params:
 
   # profile-mode
   profileMode:
-    enabled: false # needs to be explicitly set
+    enabled: true # needs to be explicitly set
     title: "Merhaba, Ben VyOfGod"
     subtitle: "Web Geliştirici & Sızma Testi Uzmanı | Dijital Sistemleri Kuruyor & Kırıyorum"
     imageUrl: "/logo.png"
     imageWidth: 160
     imageHeight: 160
     imageTitle: "Profil Fotoğrafı"
+    buttons:
+      - name: Yazılar
+        url: /posts/
+      - name: Kategoriler
+        url: /categories/
+      - name: Etiketler
+        url: /tags/
 
   # home-info mode
   homeInfoParams:
@@ -103,10 +110,13 @@ params:
     shouldSort: true
     location: 0
     distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
+    threshold: 0.3
+    minMatchCharLength: 2
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
-    keys: ["title", "permalink", "summary", "content"]
+    keys: ["title", "summary", "content"]
+    ignoreLocation: true
+    useExtendedSearch: false
+    findAllMatches: false
 
 languages:
   tr:
@@ -115,13 +125,20 @@ languages:
     title: "Centrion"
     params:
       profileMode:
-        enabled: false
+        enabled: true
         title: "Merhaba, Ben VyOfGod"
         subtitle: "Web Geliştirici & Sızma Testi Uzmanı | Dijital Sistemleri Kuruyor & Kırıyorum"
         imageUrl: "/logo.png"
         imageWidth: 160
         imageHeight: 160
         imageTitle: "Profil Fotoğrafı"
+        buttons:
+          - name: Yazılar
+            url: /posts/
+          - name: Kategoriler
+            url: /categories/
+          - name: Etiketler
+            url: /tags/
     menu:
       main:
         - identifier: posts
