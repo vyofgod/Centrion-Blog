@@ -191,10 +191,10 @@ body {
 }
 
 .profile .buttons {
-    display: flex !important;
+    display: inline-flex !important;
     gap: 0.75rem !important;
     margin-top: 2rem !important;
-    flex-wrap: wrap !important;
+    flex-wrap: nowrap !important;
     justify-content: center !important;
 }
 
