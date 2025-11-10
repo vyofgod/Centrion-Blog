@@ -124,17 +124,21 @@ languages:
         imageTitle: "Profil Fotoğrafı"
     menu:
       main:
+        - identifier: posts
+          name: "Yazılar"
+          url: "/tr/posts/"
+          weight: 5
         - identifier: categories
           name: "Kategoriler"
-          url: "/categories/"
+          url: "/tr/categories/"
           weight: 10
         - identifier: tags
           name: "Etiketler"
-          url: "/tags/"
+          url: "/tr/tags/"
           weight: 20
         - identifier: search
           name: "Ara"
-          url: "/search/"
+          url: "/tr/search/"
           weight: 30
 
 outputs:
