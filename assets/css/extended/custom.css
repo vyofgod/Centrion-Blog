@@ -164,6 +164,20 @@ body {
     margin: 0 !important;
     line-height: 1.15 !important;
     color: var(--primary) !important;
+    overflow: hidden !important;
+    border-right: 3px solid var(--primary) !important;
+    white-space: nowrap !important;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite !important;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--primary); }
 }
 
 .profile .profile_inner span {
@@ -178,9 +192,9 @@ body {
 
 .profile .buttons {
     display: flex !important;
-    gap: 1.25rem !important;
+    gap: 0 !important;
     margin-top: 2.5rem !important;
-    flex-wrap: wrap !important;
+    flex-wrap: nowrap !important;
     justify-content: center !important;
 }
 
@@ -188,7 +202,8 @@ body {
     padding: 0.85rem 2rem !important;
     background: transparent !important;
     border: 1.5px solid var(--border) !important;
-    border-radius: 10px !important;
+    border-radius: 0 !important;
+    border-right: none !important;
     font-weight: 500 !important;
     font-size: 1rem !important;
     transition: all 0.25s ease !important;
@@ -198,6 +213,15 @@ body {
     align-items: center !important;
     gap: 0.5rem !important;
     letter-spacing: -0.01em !important;
+}
+
+.profile .buttons .button:first-child {
+    border-radius: 10px 0 0 10px !important;
+}
+
+.profile .buttons .button:last-child {
+    border-radius: 0 10px 10px 0 !important;
+    border-right: 1.5px solid var(--border) !important;
 }
 
 .profile .buttons .button:hover {
