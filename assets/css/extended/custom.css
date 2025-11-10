@@ -157,18 +157,20 @@ body {
     min-height: 70vh !important;
 }
 
-/* Hide footer on home page and disable scroll */
-body.home {
+/* Hide footer completely and disable scroll on home */
+footer,
+.footer {
+    display: none !important;
+}
+
+/* Disable scroll on home page */
+body:has(.profile) {
     overflow: hidden !important;
     height: 100vh !important;
 }
 
-body.home footer {
-    display: none !important;
-}
-
-body.home .footer {
-    display: none !important;
+.main:has(.profile) {
+    overflow: hidden !important;
 }
 
 .profile .profile_inner {

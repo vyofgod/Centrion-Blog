@@ -90,6 +90,9 @@ params:
     - name: "github"
       url: "https://github.com/vyofgod"
 
+  # Hide footer
+  hideFooter: true
+
   analytics:
     google:
       SiteVerificationTag: "XYZabc"
