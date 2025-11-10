@@ -140,35 +140,82 @@ body {
 
 /* Enhanced profile section design */
 .profile {
-    padding: 3rem 0 2rem 0 !important;
+    padding: 4rem 0 3rem 0 !important;
     margin-top: 0 !important;
-    animation: slideInLeft 0.8s ease-out;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 60vh !important;
+    animation: fadeIn 0.8s ease-out;
 }
 
 .profile .profile_inner {
-    gap: 0.75rem !important;
+    gap: 1.5rem !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    max-width: 700px !important;
 }
 
 .profile .profile_inner h1 {
-    font-size: 2rem !important;
-    font-weight: 700 !important;
-    letter-spacing: -0.02em !important;
+    font-size: 3rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
     margin: 0 !important;
-    line-height: 1.2 !important;
+    line-height: 1.1 !important;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
 }
 
 .profile .profile_inner span {
-    font-size: 1rem !important;
+    font-size: 1.25rem !important;
     color: var(--secondary) !important;
-    opacity: 0.85 !important;
+    opacity: 0.9 !important;
     font-weight: 400 !important;
     margin: 0 !important;
+    line-height: 1.6 !important;
+}
+
+.profile .buttons {
+    display: flex !important;
+    gap: 1rem !important;
+    margin-top: 2rem !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+}
+
+.profile .buttons .button {
+    padding: 0.75rem 2rem !important;
+    background: var(--entry) !important;
+    border: 2px solid var(--border) !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-decoration: none !important;
+    color: var(--primary) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+.profile .buttons .button:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    border-color: var(--primary) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+    background: var(--code-bg) !important;
 }
 
 .profile .social-icons {
-    margin-top: 1.5rem !important;
+    margin-top: 2rem !important;
     margin-bottom: 0 !important;
-    animation: slideInUp 0.8s ease-out 0.3s both;
+    display: flex !important;
+    gap: 1rem !important;
+    justify-content: center !important;
+    animation: fadeIn 0.8s ease-out 0.3s both;
 }
 
 .profile .social-icons a {
@@ -818,57 +865,36 @@ body {
     margin-top: -0.1rem !important;
 }
 
-/* Home profile redesign overrides */
-.main .profile {
-    min-height: unset !important;
-    padding-top: 0.5rem !important;
-}
-
-/* Larger circular avatar with subtle glow */
-.profile-section img,
-.profile img {
-    width: 180px !important;
-    height: 180px !important;
-    border-radius: 50% !important;
-    border: 4px solid var(--theme) !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 0 0 4px color-mix(in oklab, var(--theme) 20%, transparent) !important;
-}
-
-/* Stronger, nicer heading typography */
-.profile-section h1,
-.profile .profile_inner h1 {
-    font-size: 2rem !important;
-    font-weight: 800 !important;
-    line-height: 1.15 !important;
-    letter-spacing: 0.2px !important;
-}
-
-/* Cleaner subtitle */
-.profile-section .subtitle,
-.profile .profile_inner span {
-    font-size: 1rem !important;
-    color: var(--secondary) !important;
-    opacity: 0.9 !important;
-}
-
-/* Tighter spacing between name and subtitle */
-.profile .profile_inner {
-    gap: 0.6rem !important;
-}
+/* Remove conflicting profile styles */
 
 /* Comprehensive responsive design */
 @media (max-width: 768px) {
     /* Profile adjustments */
+    .profile {
+        padding: 3rem 1rem 2rem 1rem !important;
+        min-height: 50vh !important;
+    }
+    
+    .profile .profile_inner {
+        max-width: 100% !important;
+    }
+    
     .profile .profile_inner h1 {
         font-size: 2rem !important;
     }
 
     .profile .profile_inner span {
-        font-size: 1rem !important;
+        font-size: 1.1rem !important;
     }
     
-    .profile {
-        padding: 2rem 0 1.5rem 0 !important;
+    .profile .buttons {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    
+    .profile .buttons .button {
+        width: 100% !important;
+        justify-content: center !important;
     }
     
     /* Post card adjustments */
