@@ -138,97 +138,110 @@ body {
     display: none !important;
 }
 
-/* Minimal clean profile section design */
+/* Refined minimal profile section design */
 .profile {
-    padding: 6rem 0 4rem 0 !important;
+    padding: 8rem 2rem 5rem 2rem !important;
     margin-top: 0 !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    min-height: 65vh !important;
+    min-height: 70vh !important;
 }
 
 .profile .profile_inner {
-    gap: 1.5rem !important;
+    gap: 2rem !important;
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    max-width: 650px !important;
+    max-width: 680px !important;
 }
 
 .profile .profile_inner h1 {
-    font-size: 2.75rem !important;
-    font-weight: 700 !important;
-    letter-spacing: -0.02em !important;
+    font-size: 3rem !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.03em !important;
     margin: 0 !important;
-    line-height: 1.2 !important;
+    line-height: 1.15 !important;
     color: var(--primary) !important;
 }
 
 .profile .profile_inner span {
-    font-size: 1.15rem !important;
+    font-size: 1.2rem !important;
     color: var(--secondary) !important;
-    opacity: 0.85 !important;
+    opacity: 0.8 !important;
     font-weight: 400 !important;
     margin: 0 !important;
-    line-height: 1.6 !important;
+    line-height: 1.7 !important;
+    max-width: 600px !important;
 }
 
 .profile .buttons {
     display: flex !important;
-    gap: 1rem !important;
-    margin-top: 2rem !important;
+    gap: 1.25rem !important;
+    margin-top: 2.5rem !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
 }
 
 .profile .buttons .button {
-    padding: 0.7rem 1.8rem !important;
-    background: var(--entry) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: 8px !important;
+    padding: 0.85rem 2rem !important;
+    background: transparent !important;
+    border: 1.5px solid var(--border) !important;
+    border-radius: 10px !important;
     font-weight: 500 !important;
-    font-size: 0.95rem !important;
-    transition: all 0.2s ease !important;
+    font-size: 1rem !important;
+    transition: all 0.25s ease !important;
     text-decoration: none !important;
     color: var(--primary) !important;
     display: inline-flex !important;
     align-items: center !important;
     gap: 0.5rem !important;
+    letter-spacing: -0.01em !important;
 }
 
 .profile .buttons .button:hover {
-    transform: translateY(-2px) !important;
+    transform: translateY(-3px) !important;
     border-color: var(--primary) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
-    background: var(--code-bg) !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1) !important;
+    background: var(--entry) !important;
 }
 
 .profile .buttons .button:active {
-    transform: translateY(0) !important;
+    transform: translateY(-1px) !important;
 }
 
 .profile .social-icons {
-    margin-top: 2rem !important;
+    margin-top: 2.5rem !important;
     margin-bottom: 0 !important;
     display: flex !important;
-    gap: 1rem !important;
+    gap: 1.5rem !important;
     justify-content: center !important;
 }
 
 .profile .social-icons a {
-    transition: all 0.2s ease !important;
-    opacity: 0.7 !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    border: 1.5px solid var(--border) !important;
+    transition: all 0.25s ease !important;
+    opacity: 0.8 !important;
+    background: transparent !important;
 }
 
 .profile .social-icons a:hover {
-    transform: translateY(-2px) !important;
+    transform: translateY(-3px) !important;
     opacity: 1 !important;
+    border-color: var(--primary) !important;
+    background: var(--entry) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
 }
 
 .profile .social-icons a:active {
-    transform: translateY(0) !important;
+    transform: translateY(-1px) !important;
 }
 
 /* Modern header design */
