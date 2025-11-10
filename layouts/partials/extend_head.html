@@ -23,3 +23,12 @@
 {{- else }}
 <script defer crossorigin="anonymous" src="{{ $animations.RelPermalink }}"></script>
 {{- end }}
+
+{{- /* Load typing animation script */ -}}
+{{- $typing := resources.Get "js/typing-animation.js" | resources.Minify }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $typing = $typing | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $typing.RelPermalink }}" integrity="{{ $typing.Data.Integrity }}"></script>
+{{- else }}
+<script defer crossorigin="anonymous" src="{{ $typing.RelPermalink }}"></script>
+{{- end }}
