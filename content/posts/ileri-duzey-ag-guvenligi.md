@@ -4,7 +4,7 @@ date: 2025-11-09T00:20:00+03:00
 tags: ["ağ güvenliği", "siber güvenlik", "güvenlik duvarı", "ids/ips"]
 author: "You"
 showToc: true
-TocOpen: true
+TocOpen: false
 draft: false
 hidemeta: false
 comments: true

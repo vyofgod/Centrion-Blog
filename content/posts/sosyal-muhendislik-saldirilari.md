@@ -4,7 +4,7 @@ date: 2025-11-09T00:19:00+03:00
 tags: ["sosyal mühendislik", "güvenlik", "phishing", "dolandırıcılık"]
 author: "You"
 showToc: true
-TocOpen: true
+TocOpen: false
 draft: false
 hidemeta: false
 comments: true

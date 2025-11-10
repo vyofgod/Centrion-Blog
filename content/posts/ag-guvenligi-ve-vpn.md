@@ -5,7 +5,7 @@ tags: ["ağ güvenliği", "vpn", "güvenli bağlantı", "siber güvenlik"]
 categories: ["Ağ Güvenliği"]
 author: "You"
 showToc: true
-TocOpen: true
+TocOpen: false
 draft: false
 hidemeta: false
 comments: true

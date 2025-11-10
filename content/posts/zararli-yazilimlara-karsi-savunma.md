@@ -5,7 +5,7 @@ tags: ["zararlı yazılım", "antivirüs", "siber güvenlik", "kötü amaçlı y
 categories: ["Zararlı Yazılım"]
 author: "You"
 showToc: true
-TocOpen: true
+TocOpen: false
 draft: false
 hidemeta: false
 comments: true

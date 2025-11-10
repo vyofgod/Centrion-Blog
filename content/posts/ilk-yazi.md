@@ -5,7 +5,7 @@ tags: ["siber güvenlik", "güvenlik önlemleri", "güvenlik ipuçları"]
 categories: ["Temel Güvenlik"]
 author: "You"
 showToc: true
-TocOpen: true
+TocOpen: false
 draft: false
 hidemeta: false
 comments: true

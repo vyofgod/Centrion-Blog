@@ -5,7 +5,7 @@ tags: ["kişisel veri", "gizlilik", "veri güvenliği"]
 categories: ["Veri Koruma"]
 author: "You"
 showToc: true
-TocOpen: true
+TocOpen: false
 draft: false
 hidemeta: false
 comments: true

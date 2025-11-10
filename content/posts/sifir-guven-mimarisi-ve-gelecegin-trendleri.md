@@ -4,7 +4,7 @@ date: 2025-11-09T00:23:00+03:00
 tags: ["sıfır güven", "zero trust", "siber güvenlik trendleri", "gelecek güvenlik teknolojileri"]
 author: "You"
 showToc: true
-TocOpen: true
+TocOpen: false
 draft: false
 hidemeta: false
 comments: true

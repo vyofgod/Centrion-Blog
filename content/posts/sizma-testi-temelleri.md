@@ -4,7 +4,7 @@ date: 2025-11-09T00:21:00+03:00
 tags: ["sızma testi", "pentest", "etik hacking", "siber güvenlik"]
 author: "You"
 showToc: true
-TocOpen: true
+TocOpen: false
 draft: false
 hidemeta: false
 comments: true

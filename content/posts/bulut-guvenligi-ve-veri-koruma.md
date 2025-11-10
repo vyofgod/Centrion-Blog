@@ -5,7 +5,7 @@ tags: ["bulut güvenliği", "veri koruma", "bulut bilişim güvenliği", "veri g
 categories: ["Bulut Güvenliği"]
 author: "You"
 showToc: true
-TocOpen: true
+TocOpen: false
 draft: false
 hidemeta: false
 comments: true

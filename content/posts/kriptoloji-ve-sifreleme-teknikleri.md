@@ -4,7 +4,7 @@ date: 2025-11-09T00:18:00+03:00
 tags: ["kriptoloji", "şifreleme", "güvenlik", "kriptografi"]
 author: "You"
 showToc: true
-TocOpen: true
+TocOpen: false
 draft: false
 hidemeta: false
 comments: true
