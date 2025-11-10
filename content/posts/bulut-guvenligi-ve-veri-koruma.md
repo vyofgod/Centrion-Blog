@@ -1,15 +1,15 @@
 ---
-title: "Cloud Security and Data Protection"
+title: "Bulut Güvenliği ve Veri Koruma"
 date: 2025-11-09T00:22:00+03:00
-tags: ["cloud security", "data protection", "cloud security", "data security"]
-categories: ["Cloud Security"]
+tags: ["bulut güvenliği", "veri koruma", "bulut bilişim güvenliği", "veri güvenliği"]
+categories: ["Bulut Güvenliği"]
 author: "You"
 showToc: true
 TocOpen: true
 draft: false
 hidemeta: false
 comments: true
-description: "Comprehensive guide on security measures in cloud computing, data protection strategies, and best practices."
+description: "Bulut bilişimde güvenlik önlemleri, veri koruma stratejileri ve en iyi uygulamalar hakkında kapsamlı rehber."
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
