@@ -192,47 +192,36 @@ body {
 
 .profile .buttons {
     display: flex !important;
-    gap: 0 !important;
-    margin-top: 2.5rem !important;
-    flex-wrap: nowrap !important;
+    gap: 0.75rem !important;
+    margin-top: 2rem !important;
+    flex-wrap: wrap !important;
     justify-content: center !important;
 }
 
 .profile .buttons .button {
-    padding: 0.85rem 2rem !important;
+    padding: 0.6rem 1.5rem !important;
     background: transparent !important;
-    border: 1.5px solid var(--border) !important;
-    border-radius: 0 !important;
-    border-right: none !important;
-    font-weight: 500 !important;
-    font-size: 1rem !important;
-    transition: all 0.25s ease !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 6px !important;
+    font-weight: 400 !important;
+    font-size: 0.9rem !important;
+    transition: all 0.2s ease !important;
     text-decoration: none !important;
-    color: var(--primary) !important;
+    color: var(--secondary) !important;
     display: inline-flex !important;
     align-items: center !important;
     gap: 0.5rem !important;
-    letter-spacing: -0.01em !important;
-}
-
-.profile .buttons .button:first-child {
-    border-radius: 10px 0 0 10px !important;
-}
-
-.profile .buttons .button:last-child {
-    border-radius: 0 10px 10px 0 !important;
-    border-right: 1.5px solid var(--border) !important;
+    opacity: 0.8 !important;
 }
 
 .profile .buttons .button:hover {
-    transform: translateY(-3px) !important;
+    opacity: 1 !important;
+    color: var(--primary) !important;
     border-color: var(--primary) !important;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1) !important;
-    background: var(--entry) !important;
 }
 
 .profile .buttons .button:active {
-    transform: translateY(-1px) !important;
+    transform: scale(0.98) !important;
 }
 
 .profile .social-icons {
