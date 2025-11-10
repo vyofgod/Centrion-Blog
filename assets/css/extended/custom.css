@@ -157,6 +157,20 @@ body {
     min-height: 70vh !important;
 }
 
+/* Hide footer on home page and disable scroll */
+body.home {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+body.home footer {
+    display: none !important;
+}
+
+body.home .footer {
+    display: none !important;
+}
+
 .profile .profile_inner {
     gap: 2rem !important;
     text-align: center !important;
