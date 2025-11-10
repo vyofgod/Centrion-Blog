@@ -192,36 +192,37 @@ body {
 
 .profile .buttons {
     display: inline-flex !important;
-    gap: 0.75rem !important;
-    margin-top: 2rem !important;
+    gap: 1rem !important;
+    margin-top: 2.5rem !important;
     flex-wrap: nowrap !important;
     justify-content: center !important;
 }
 
 .profile .buttons .button {
-    padding: 0.6rem 1.5rem !important;
+    padding: 0.75rem 2rem !important;
     background: transparent !important;
-    border: 1px solid var(--border) !important;
-    border-radius: 6px !important;
-    font-weight: 400 !important;
-    font-size: 0.9rem !important;
+    border: 1.5px solid var(--border) !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
     transition: all 0.2s ease !important;
     text-decoration: none !important;
-    color: var(--secondary) !important;
+    color: var(--primary) !important;
     display: inline-flex !important;
     align-items: center !important;
     gap: 0.5rem !important;
-    opacity: 0.8 !important;
+    letter-spacing: 0.01em !important;
+    white-space: nowrap !important;
 }
 
 .profile .buttons .button:hover {
-    opacity: 1 !important;
-    color: var(--primary) !important;
+    background: var(--entry) !important;
     border-color: var(--primary) !important;
+    transform: translateY(-1px) !important;
 }
 
 .profile .buttons .button:active {
-    transform: scale(0.98) !important;
+    transform: translateY(0) !important;
 }
 
 .profile .social-icons {
