@@ -11,13 +11,22 @@
 /* Smooth scrolling for the entire page */
 html {
     scroll-behavior: smooth;
+    background: var(--theme) !important;
 }
 
 /* Page transition - fade in on load */
 body {
-    opacity: 1;
-    background: var(--theme);
-    min-height: 100vh;
+    opacity: 1 !important;
+    background: var(--theme) !important;
+    min-height: 100vh !important;
+}
+
+/* Prevent black screen on navigation */
+#content,
+.main,
+.page {
+    background: var(--theme) !important;
+    opacity: 1 !important;
 }
 
 @keyframes fadeIn {
