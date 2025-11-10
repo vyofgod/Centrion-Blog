@@ -1,4 +1,4 @@
-baseURL: "http://localhost:1313/"
+baseURL: "https://vyofgod.github.io/"
 title: "Centrion"
 theme: "PaperMod"
 defaultContentLanguage: "tr"
@@ -24,10 +24,10 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: "ExampleSite"
+  title: "Centrion"
   description: "Ağ güvenliği, veri koruma ve güvenlik en iyi uygulamalarını kapsayan siber güvenlik blogu"
   keywords: [Blog, Portföy, PaperMod]
-  author: "Me"
+  author: "VyOfGod"
   # author: ["Me", "You"] # multiple authors
   images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
