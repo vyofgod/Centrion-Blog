@@ -1,23 +1,9 @@
 (function () {
-  const STORAGE_KEY = 'centrion:viewCounts';
+  const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:3000'
+    : 'https://view-counter-api-production.up.railway.app';
+  
   const SESSION_KEY = 'centrion:viewedThisSession';
-
-  function loadCounts() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : {};
-    } catch (e) {
-      return {};
-    }
-  }
-
-  function saveCounts(data) {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    } catch (e) {
-      // ignore
-    }
-  }
 
   function loadSessionViewed() {
     try {
@@ -54,26 +40,47 @@
     }
   }
 
-  function incrementForCurrent() {
-    const key = normalizePath(window.location.href);
-    
-    if (isViewedThisSession(key)) {
-      const data = loadCounts();
-      return data[key] || 0;
-    }
-    
-    const data = loadCounts();
-    const next = (data[key] || 0) + 1;
-    data[key] = next;
-    saveCounts(data);
-    markSessionViewed(key);
-    return next;
+  function encodeKey(path) {
+    return encodeURIComponent(path.replace(/\//g, '_'));
   }
 
-  function getCountFor(url) {
+  async function incrementForCurrent() {
+    const key = normalizePath(window.location.href);
+    const encodedKey = encodeKey(key);
+    
+    if (isViewedThisSession(key)) {
+      try {
+        const response = await fetch(`${API_URL}/count/${encodedKey}`);
+        const data = await response.json();
+        return data.count || 0;
+      } catch (e) {
+        return 0;
+      }
+    }
+    
+    try {
+      const response = await fetch(`${API_URL}/count/${encodedKey}/increment`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      });
+      const data = await response.json();
+      markSessionViewed(key);
+      return data.count || 0;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  async function getCountFor(url) {
     const key = normalizePath(url);
-    const data = loadCounts();
-    return data[key] || 0;
+    const encodedKey = encodeKey(key);
+    try {
+      const response = await fetch(`${API_URL}/count/${encodedKey}`);
+      const data = await response.json();
+      return data.count || 0;
+    } catch (e) {
+      return 0;
+    }
   }
 
   function renderSingle(count) {
@@ -90,14 +97,14 @@
     node.textContent = 'Okunma: ' + count;
   }
 
-  function renderList() {
+  async function renderList() {
     const articles = document.querySelectorAll('article.post-entry, article.first-entry, article.tag-entry');
-    articles.forEach((article) => {
+    for (const article of articles) {
       const link = article.querySelector('a.entry-link');
       const footer = article.querySelector('footer.entry-footer') || article.querySelector('.entry-footer') || article.querySelector('header.entry-header');
-      if (!link || !footer) return;
+      if (!link || !footer) continue;
 
-      const count = getCountFor(link.href);
+      const count = await getCountFor(link.href);
       let node = article.querySelector('.post-views');
       if (!node) {
         node = document.createElement('span');
@@ -105,19 +112,19 @@
         footer.appendChild(node);
       }
       node.textContent = 'Okunma: ' + count;
-    });
+    }
   }
 
   function isSingle() {
     return document.querySelector('.post-single') !== null;
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', async function () {
     if (isSingle()) {
-      const c = incrementForCurrent();
+      const c = await incrementForCurrent();
       renderSingle(c);
     } else {
-      renderList();
+      await renderList();
     }
   });
 })();
