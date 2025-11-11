@@ -63,8 +63,7 @@ params:
     - js/typing-animation.js
 
   label:
-    text: "Centrion"
-    icon: "https://media1.tenor.com/m/yPRtuZsCXs4AAAAC/cat-pixelated.gif"
+    text: "🐱 Centrion"
     iconHeight: 35
 
   # profile-mode
