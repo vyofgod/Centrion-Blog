@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags/Güvenlik Ipuçları on Centrion</title>
-    <link>http://localhost:43265/tags/g%C3%BCvenlik-ipu%C3%A7lar%C4%B1/</link>
-    <description>Recent content in Tags/Güvenlik Ipuçları on Centrion</description>
+    <title>Güvenlik Ipuçları on Centrion</title>
+    <link>http://localhost:1313/tags/g%C3%BCvenlik-ipu%C3%A7lar%C4%B1/</link>
+    <description>Recent content in Güvenlik Ipuçları on Centrion</description>
     <image>
       <title>Centrion</title>
-      <url>http://localhost:43265/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:43265/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.152.2</generator>
     <language>tr</language>
     <lastBuildDate>Sun, 09 Nov 2025 00:12:00 +0300</lastBuildDate>
-    <atom:link href="http://localhost:43265/tags/g%C3%BCvenlik-ipu%C3%A7lar%C4%B1/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/g%C3%BCvenlik-ipu%C3%A7lar%C4%B1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Temel Siber Güvenlik Önlemleri</title>
-      <link>http://localhost:43265/tr/posts/ilk-yazi/</link>
+      <link>http://localhost:1313/posts/ilk-yazi/</link>
       <pubDate>Sun, 09 Nov 2025 00:12:00 +0300</pubDate>
-      <guid>http://localhost:43265/tr/posts/ilk-yazi/</guid>
+      <guid>http://localhost:1313/posts/ilk-yazi/</guid>
+      <description>Günlük dijital yaşamınızda uygulayabileceğiniz temel siber güvenlik önlemleri ve ipuçları.</description>
+    </item>
+    <item>
+      <title>Temel Siber Güvenlik Önlemleri</title>
+      <link>http://localhost:1313/tr/posts/ilk-yazi/</link>
+      <pubDate>Sun, 09 Nov 2025 00:12:00 +0300</pubDate>
+      <guid>http://localhost:1313/tr/posts/ilk-yazi/</guid>
       <description>Günlük dijital yaşamınızda uygulayabileceğiniz temel siber güvenlik önlemleri ve ipuçları.</description>
     </item>
   </channel>

@@ -2,29 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Güvenlik on Centrion</title>
-    <link>http://localhost:43265/tags/g%C3%BCvenlik/</link>
+    <link>http://localhost:1313/tags/g%C3%BCvenlik/</link>
     <description>Recent content in Güvenlik on Centrion</description>
     <image>
       <title>Centrion</title>
-      <url>http://localhost:43265/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:43265/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.152.2</generator>
     <language>tr</language>
     <lastBuildDate>Sun, 09 Nov 2025 00:19:00 +0300</lastBuildDate>
-    <atom:link href="http://localhost:43265/tags/g%C3%BCvenlik/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/g%C3%BCvenlik/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sosyal Mühendislik Saldırıları ve Savunma</title>
-      <link>http://localhost:43265/tr/posts/sosyal-muhendislik-saldirilari/</link>
+      <link>http://localhost:1313/posts/sosyal-muhendislik-saldirilari/</link>
       <pubDate>Sun, 09 Nov 2025 00:19:00 +0300</pubDate>
-      <guid>http://localhost:43265/tr/posts/sosyal-muhendislik-saldirilari/</guid>
+      <guid>http://localhost:1313/posts/sosyal-muhendislik-saldirilari/</guid>
+      <description>Sosyal mühendislik saldırıları, türleri ve bu saldırılara karşı korunma yöntemleri hakkında kapsamlı rehber.</description>
+    </item>
+    <item>
+      <title>Sosyal Mühendislik Saldırıları ve Savunma</title>
+      <link>http://localhost:1313/tr/posts/sosyal-muhendislik-saldirilari/</link>
+      <pubDate>Sun, 09 Nov 2025 00:19:00 +0300</pubDate>
+      <guid>http://localhost:1313/tr/posts/sosyal-muhendislik-saldirilari/</guid>
       <description>Sosyal mühendislik saldırıları, türleri ve bu saldırılara karşı korunma yöntemleri hakkında kapsamlı rehber.</description>
     </item>
     <item>
       <title>Kriptoloji ve Şifreleme Teknikleri</title>
-      <link>http://localhost:43265/tr/posts/kriptoloji-ve-sifreleme-teknikleri/</link>
+      <link>http://localhost:1313/posts/kriptoloji-ve-sifreleme-teknikleri/</link>
       <pubDate>Sun, 09 Nov 2025 00:18:00 +0300</pubDate>
-      <guid>http://localhost:43265/tr/posts/kriptoloji-ve-sifreleme-teknikleri/</guid>
+      <guid>http://localhost:1313/posts/kriptoloji-ve-sifreleme-teknikleri/</guid>
+      <description>Temel kriptoloji kavramları, şifreleme teknikleri ve kriptografinin günlük hayattaki kullanımları hakkında kapsamlı rehber.</description>
+    </item>
+    <item>
+      <title>Kriptoloji ve Şifreleme Teknikleri</title>
+      <link>http://localhost:1313/tr/posts/kriptoloji-ve-sifreleme-teknikleri/</link>
+      <pubDate>Sun, 09 Nov 2025 00:18:00 +0300</pubDate>
+      <guid>http://localhost:1313/tr/posts/kriptoloji-ve-sifreleme-teknikleri/</guid>
       <description>Temel kriptoloji kavramları, şifreleme teknikleri ve kriptografinin günlük hayattaki kullanımları hakkında kapsamlı rehber.</description>
     </item>
   </channel>

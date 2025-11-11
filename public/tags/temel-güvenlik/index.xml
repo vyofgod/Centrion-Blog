@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags/Temel Güvenlik on Centrion</title>
-    <link>http://localhost:43265/tags/temel-g%C3%BCvenlik/</link>
-    <description>Recent content in Tags/Temel Güvenlik on Centrion</description>
+    <title>Temel Güvenlik on Centrion</title>
+    <link>http://localhost:1313/tags/temel-g%C3%BCvenlik/</link>
+    <description>Recent content in Temel Güvenlik on Centrion</description>
     <image>
       <title>Centrion</title>
-      <url>http://localhost:43265/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:43265/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.152.2</generator>
     <language>tr</language>
     <lastBuildDate>Sun, 09 Nov 2025 00:14:00 +0300</lastBuildDate>
-    <atom:link href="http://localhost:43265/tags/temel-g%C3%BCvenlik/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/temel-g%C3%BCvenlik/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>İnternet Güvenliği Temelleri</title>
-      <link>http://localhost:43265/tr/posts/internet-guvenligi-temelleri/</link>
+      <link>http://localhost:1313/posts/internet-guvenligi-temelleri/</link>
       <pubDate>Sun, 09 Nov 2025 00:14:00 +0300</pubDate>
-      <guid>http://localhost:43265/tr/posts/internet-guvenligi-temelleri/</guid>
+      <guid>http://localhost:1313/posts/internet-guvenligi-temelleri/</guid>
+      <description>Yeni başlayanlar için temel internet güvenlik ipuçları ve güvenli dijital alışkanlıklar.</description>
+    </item>
+    <item>
+      <title>İnternet Güvenliği Temelleri</title>
+      <link>http://localhost:1313/tr/posts/internet-guvenligi-temelleri/</link>
+      <pubDate>Sun, 09 Nov 2025 00:14:00 +0300</pubDate>
+      <guid>http://localhost:1313/tr/posts/internet-guvenligi-temelleri/</guid>
       <description>Yeni başlayanlar için temel internet güvenlik ipuçları ve güvenli dijital alışkanlıklar.</description>
     </item>
   </channel>
