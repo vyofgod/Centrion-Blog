@@ -1174,3 +1174,23 @@ a, button, input, textarea, select {
         transform: none;
     }
 }
+
+.post-views {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0.15rem 0.5rem !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 999px !important;
+    background: var(--entry) !important;
+    color: var(--secondary) !important;
+    font-size: 0.85rem !important;
+    line-height: 1 !important;
+}
+
+.post-single .post-meta .post-views {
+    margin-left: 0.5rem !important;
+}
+
+.post-entry .entry-footer .post-views {
+    margin-left: 0.5rem !important;
+}
