@@ -1,0 +1,23 @@
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+
+{{- if and (gt (len $pages) 1) (in $pages . ) }}
+{{- $index := index $pages . }}
+{{- $prev := index $pages (add $index 1) }}
+{{- $next := index $pages (sub $index 1) }}
+
+<nav class="paginav">
+  {{- if $prev }}
+  <a class="prev" href="{{ $prev.Permalink }}">
+    <span class="title">← Önceki Yazı</span>
+    <span class="desc">{{ $prev.Title }}</span>
+  </a>
+  {{- end }}
+  
+  {{- if $next }}
+  <a class="next" href="{{ $next.Permalink }}">
+    <span class="title">Sonraki Yazı →</span>
+    <span class="desc">{{ $next.Title }}</span>
+  </a>
+  {{- end }}
+</nav>
+{{- end }}
