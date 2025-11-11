@@ -21,6 +21,21 @@ body {
     min-height: 100vh !important;
 }
 
+/* Page transition overlay */
+.page-transition {
+    position: fixed !important;
+    inset: 0 !important;
+    background: var(--theme) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.22s ease !important;
+    z-index: 9999 !important;
+}
+.page-transition.active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
 /* Prevent black screen on navigation */
 #content,
 .main,
