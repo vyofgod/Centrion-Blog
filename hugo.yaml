@@ -63,9 +63,9 @@ params:
     - js/typing-animation.js
 
   label:
-    text: "Ana Sayfa"
-    icon: /apple-touch-icon.png
-    iconHeight: 50
+    text: "Centrion"
+    icon: "https://media1.tenor.com/m/yPRtuZsCXs4AAAAC/cat-pixelated.gif"
+    iconHeight: 35
 
   # profile-mode
   profileMode:
