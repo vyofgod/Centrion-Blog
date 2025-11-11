@@ -53,11 +53,11 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "/favicon.ico"
-    favicon16x16: "/favicon.ico"
-    favicon32x32: "/favicon.ico"
-    apple_touch_icon: "/favicon.ico"
-    safari_pinned_tab: "/favicon.ico"
+    favicon: "/favicon.gif"
+    favicon16x16: "/favicon.gif"
+    favicon32x32: "/favicon.gif"
+    apple_touch_icon: "/favicon.gif"
+    safari_pinned_tab: "/favicon.gif"
   
   customJS:
     - js/typing-animation.js
