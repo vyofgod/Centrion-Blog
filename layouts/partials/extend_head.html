@@ -36,7 +36,7 @@
 {{- $view := resources.Get "js/view-counter.js" | resources.Minify }}
 {{- if not site.Params.assets.disableFingerprinting }}
 {{- $view = $view | fingerprint }}
-<script defer crossorigin="anonymous" src="{{ $view.RelPermalink }}" integrity="{{ $view.Data.Integrity }}"></script>
+<script type="module" crossorigin="anonymous" src="{{ $view.RelPermalink }}" integrity="{{ $view.Data.Integrity }}"></script>
 {{- else }}
-<script defer crossorigin="anonymous" src="{{ $view.RelPermalink }}"></script>
+<script type="module" crossorigin="anonymous" src="{{ $view.RelPermalink }}"></script>
 {{- end }}

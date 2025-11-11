@@ -1,7 +1,21 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getDatabase, ref, runTransaction, get } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+
 (function () {
-  const API_BASE = 'https://api.countapi.xyz';
+  const firebaseConfig = {
+    apiKey: "AIzaSyB3tQ7iFro0zlmkh-C_zN4s7RnlGGycgD0",
+    authDomain: "centrion-blog.firebaseapp.com",
+    databaseURL: "https://centrion-blog-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "centrion-blog",
+    storageBucket: "centrion-blog.firebasestorage.app",
+    messagingSenderId: "53755457531",
+    appId: "1:53755457531:web:f35e2fd2aadcef252a255e",
+    measurementId: "G-8ZQ3E23014"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
   const SESSION_KEY = 'centrion:viewedThisSession';
-  const NAMESPACE = 'centrion-blog';
 
   function loadSessionViewed() {
     try {
@@ -32,42 +46,28 @@
       const u = new URL(url, window.location.origin);
       let p = u.pathname;
       if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
-      return p.replace(/\//g, '-').replace(/^-/, '') || 'home';
+      return p.replace(/[^a-zA-Z0-9]/g, '-').replace(/^-+|-+$/g, '') || 'home';
     } catch (e) {
       return 'unknown';
     }
   }
 
-  function makeKey(path) {
-    return NAMESPACE + '-' + path;
-  }
-
   async function incrementForCurrent() {
     const path = normalizePath(window.location.href);
-    const key = makeKey(path);
     
     if (isViewedThisSession(path)) {
-      return await getCount(key);
+      return await getCountFor(window.location.href);
     }
     
     try {
-      const response = await fetch(`${API_BASE}/hit/${NAMESPACE}/${path}`);
-      const data = await response.json();
+      const viewRef = ref(database, 'views/' + path);
+      const result = await runTransaction(viewRef, (current) => {
+        return (current || 0) + 1;
+      });
       markSessionViewed(path);
-      return data.value || 0;
+      return result.snapshot.val() || 0;
     } catch (e) {
-      return 0;
-    }
-  }
-
-  async function getCount(fullKey) {
-    try {
-      const parts = fullKey.split('-');
-      const path = parts.slice(2).join('-');
-      const response = await fetch(`${API_BASE}/get/${NAMESPACE}/${path}`);
-      const data = await response.json();
-      return data.value || 0;
-    } catch (e) {
+      console.error('Failed to increment:', e);
       return 0;
     }
   }
@@ -75,10 +75,11 @@
   async function getCountFor(url) {
     const path = normalizePath(url);
     try {
-      const response = await fetch(`${API_BASE}/get/${NAMESPACE}/${path}`);
-      const data = await response.json();
-      return data.value || 0;
+      const viewRef = ref(database, 'views/' + path);
+      const snapshot = await get(viewRef);
+      return snapshot.val() || 0;
     } catch (e) {
+      console.error('Failed to get count for', path, ':', e);
       return 0;
     }
   }
