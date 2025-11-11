@@ -1,9 +1,7 @@
 (function () {
-  const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:3000'
-    : 'https://view-counter-api-production.up.railway.app';
-  
+  const API_BASE = 'https://api.countapi.xyz';
   const SESSION_KEY = 'centrion:viewedThisSession';
+  const NAMESPACE = 'centrion-blog';
 
   function loadSessionViewed() {
     try {
@@ -34,50 +32,52 @@
       const u = new URL(url, window.location.origin);
       let p = u.pathname;
       if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
-      return p;
+      return p.replace(/\//g, '-').replace(/^-/, '') || 'home';
     } catch (e) {
-      return String(url || '');
+      return 'unknown';
     }
   }
 
-  function encodeKey(path) {
-    return encodeURIComponent(path.replace(/\//g, '_'));
+  function makeKey(path) {
+    return NAMESPACE + '-' + path;
   }
 
   async function incrementForCurrent() {
-    const key = normalizePath(window.location.href);
-    const encodedKey = encodeKey(key);
+    const path = normalizePath(window.location.href);
+    const key = makeKey(path);
     
-    if (isViewedThisSession(key)) {
-      try {
-        const response = await fetch(`${API_URL}/count/${encodedKey}`);
-        const data = await response.json();
-        return data.count || 0;
-      } catch (e) {
-        return 0;
-      }
+    if (isViewedThisSession(path)) {
+      return await getCount(key);
     }
     
     try {
-      const response = await fetch(`${API_URL}/count/${encodedKey}/increment`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
-      });
+      const response = await fetch(`${API_BASE}/hit/${NAMESPACE}/${path}`);
       const data = await response.json();
-      markSessionViewed(key);
-      return data.count || 0;
+      markSessionViewed(path);
+      return data.value || 0;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  async function getCount(fullKey) {
+    try {
+      const parts = fullKey.split('-');
+      const path = parts.slice(2).join('-');
+      const response = await fetch(`${API_BASE}/get/${NAMESPACE}/${path}`);
+      const data = await response.json();
+      return data.value || 0;
     } catch (e) {
       return 0;
     }
   }
 
   async function getCountFor(url) {
-    const key = normalizePath(url);
-    const encodedKey = encodeKey(key);
+    const path = normalizePath(url);
     try {
-      const response = await fetch(`${API_URL}/count/${encodedKey}`);
+      const response = await fetch(`${API_BASE}/get/${NAMESPACE}/${path}`);
       const data = await response.json();
-      return data.count || 0;
+      return data.value || 0;
     } catch (e) {
       return 0;
     }
