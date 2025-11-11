@@ -301,29 +301,41 @@ body:has(.profile) {
      gap: 0.75rem !important;
  }
 
+ /* remove theme's big bar look */
+ .post-footer .paginav {
+     background: transparent !important;
+     border: 0 !important;
+     padding: 0 !important;
+     line-height: 1.2 !important;
+ }
+
  .paginav a,
  .post-nav-links a {
      display: inline-flex !important;
      align-items: center !important;
      gap: 0.5rem !important;
-     padding: 0.6rem 0.9rem !important;
-     background: var(--entry) !important;
+     padding: 0.55rem 1rem !important;
+     background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06)) !important;
      border: 1px solid var(--border) !important;
-     border-radius: 10px !important;
+     border-radius: 12px !important;
      text-decoration: none !important;
      color: var(--primary) !important;
-     transition: border-color 0.2s ease, transform 0.15s ease !important;
+     transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease !important;
+     box-shadow: 0 1px 2px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.04) !important;
+     max-width: 48% !important;
  }
 
  .paginav a:hover,
  .post-nav-links a:hover {
      transform: translateY(-2px) !important;
      border-color: var(--primary) !important;
+     background: var(--entry) !important;
+     box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
  }
 
  .paginav .title,
  .post-nav-links .title {
-     font-size: 0.8rem !important;
+     font-size: 0.82rem !important;
      color: var(--secondary) !important;
      opacity: 0.75 !important;
      text-transform: none !important;
@@ -343,16 +355,42 @@ body:has(.profile) {
  .paginav .prev,
  .post-nav-links .prev {
      text-align: left !important;
+     width: auto !important;
  }
 
  .paginav .next,
  .post-nav-links .next {
      text-align: right !important;
+     width: auto !important;
  }
 
  .paginav a br,
  .post-nav-links a br {
      display: none !important;
+ }
+
+ .paginav a:focus-visible,
+ .post-nav-links a:focus-visible,
+ .share-buttons a {
+    width: 36px !important;
+    height: 36px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1px solid var(--border) !important;
+    background: var(--entry) !important;
+    border-radius: 10px !important;
+    transition: border-color 0.2s ease, transform 0.15s ease !important;
+}
+
+.share-buttons a:hover {
+    transform: translateY(-2px) !important;
+    border-color: var(--primary) !important;
+    background: var(--code-bg) !important;
+}
+
+ .pagination a:focus-visible {
+     outline: 2px solid var(--primary) !important;
+     outline-offset: 2px !important;
  }
 
  /* Add arrows with CSS */
@@ -362,6 +400,42 @@ body:has(.profile) {
  .post-nav-links .next::after {
      content: "" !important;
  }
+
+/* Chip nav visuals: hide small label, re-inject with pseudo for clean arrows */
+.paginav .title,
+.post-nav-links .title {
+    display: none !important;
+}
+
+.paginav a.prev::before,
+.post-nav-links a.prev::before {
+    content: '← Önceki' !important;
+    font-size: 0.82rem !important;
+    color: var(--secondary) !important;
+    opacity: 0.85 !important;
+    margin-right: 0.5rem !important;
+    transition: transform 0.2s ease !important;
+}
+
+.paginav a.next::after,
+.post-nav-links a.next::after {
+    content: 'Sonraki →' !important;
+    font-size: 0.82rem !important;
+    color: var(--secondary) !important;
+    opacity: 0.85 !important;
+    margin-left: 0.5rem !important;
+    transition: transform 0.2s ease !important;
+}
+
+.paginav a.prev:hover::before,
+.post-nav-links a.prev:hover::before {
+    transform: translateX(-2px) !important;
+}
+
+.paginav a.next:hover::after,
+.post-nav-links a.next:hover::after {
+    transform: translateX(2px) !important;
+}
 
 /* Mobile responsive */
 @media (max-width: 768px) {
@@ -381,7 +455,7 @@ body:has(.profile) {
     margin-top: 2rem !important;
     display: flex;
     gap: 0.75rem;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     animation: slideInUp 0.6s ease-out;
 }
@@ -412,6 +486,8 @@ body:has(.profile) {
     align-items: center !important;
     gap: 0.5rem !important;
     box-shadow: none !important;
+    min-width: 120px !important;
+    justify-content: center !important;
 }
 
 .pagination a:hover {
