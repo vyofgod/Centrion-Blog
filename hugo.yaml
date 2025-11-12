@@ -108,11 +108,11 @@ params:
     imageTitle: "Profil Fotoğrafı"
     buttons:
       - name: Yazılar
-        url: /posts/
+        url: /tr/posts/
       - name: Kategoriler
-        url: /categories/
+        url: /tr/categories/
       - name: Etiketler
-        url: /tags/
+        url: /tr/tags/
 
   # home-info mode
   homeInfoParams:
@@ -186,28 +186,28 @@ languages:
         imageTitle: "Profil Fotoğrafı"
         buttons:
           - name: Yazılar
-            url: /posts/
+            url: /tr/posts/
           - name: Kategoriler
-            url: /categories/
+            url: /tr/categories/
           - name: Etiketler
-            url: /tags/
+            url: /tr/tags/
     menu:
       main:
         - identifier: posts
           name: "Yazılar"
-          url: "/posts/"
+          url: "/tr/posts/"
           weight: 5
         - identifier: categories
           name: "Kategoriler"
-          url: "/categories/"
+          url: "/tr/categories/"
           weight: 10
         - identifier: tags
           name: "Etiketler"
-          url: "/tags/"
+          url: "/tr/tags/"
           weight: 20
         - identifier: search
           name: "Ara"
-          url: "/search/"
+          url: "/tr/search/"
           weight: 30
 
 outputs:
