@@ -51,6 +51,31 @@
   [headers.values]
     Cache-Control = "no-cache, no-store, must-revalidate"
 
+# Language redirects - Turkish is default
+[[redirects]]
+  from = "/posts/*"
+  to = "/tr/posts/:splat"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/posts"
+  to = "/tr/posts"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/categories/*"
+  to = "/tr/categories/:splat"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/tags/*"
+  to = "/tr/tags/:splat"
+  status = 200
+  force = false
+
 # Redirect HTTP to HTTPS
 [[redirects]]
   from = "http://centrion.blog/*"

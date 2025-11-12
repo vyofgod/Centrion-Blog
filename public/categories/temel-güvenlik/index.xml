@@ -15,10 +15,24 @@
     <atom:link href="http://localhost:1313/categories/temel-g%C3%BCvenlik/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>İnternet Güvenliği Temelleri</title>
+      <link>http://localhost:1313/posts/internet-guvenligi-temelleri/</link>
+      <pubDate>Sun, 09 Nov 2025 00:14:00 +0300</pubDate>
+      <guid>http://localhost:1313/posts/internet-guvenligi-temelleri/</guid>
+      <description>Yeni başlayanlar için temel internet güvenlik ipuçları ve güvenli dijital alışkanlıklar.</description>
+    </item>
+    <item>
+      <title>İnternet Güvenliği Temelleri</title>
       <link>http://localhost:1313/tr/posts/internet-guvenligi-temelleri/</link>
       <pubDate>Sun, 09 Nov 2025 00:14:00 +0300</pubDate>
       <guid>http://localhost:1313/tr/posts/internet-guvenligi-temelleri/</guid>
       <description>Yeni başlayanlar için temel internet güvenlik ipuçları ve güvenli dijital alışkanlıklar.</description>
+    </item>
+    <item>
+      <title>Temel Siber Güvenlik Önlemleri</title>
+      <link>http://localhost:1313/posts/ilk-yazi/</link>
+      <pubDate>Sun, 09 Nov 2025 00:12:00 +0300</pubDate>
+      <guid>http://localhost:1313/posts/ilk-yazi/</guid>
+      <description>Günlük dijital yaşamınızda uygulayabileceğiniz temel siber güvenlik önlemleri ve ipuçları.</description>
     </item>
     <item>
       <title>Temel Siber Güvenlik Önlemleri</title>

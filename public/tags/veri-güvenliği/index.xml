@@ -15,10 +15,24 @@
     <atom:link href="http://localhost:1313/tags/veri-g%C3%BCvenli%C4%9Fi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bulut Güvenliği ve Veri Koruma</title>
+      <link>http://localhost:1313/posts/bulut-guvenligi-ve-veri-koruma/</link>
+      <pubDate>Sun, 09 Nov 2025 00:22:00 +0300</pubDate>
+      <guid>http://localhost:1313/posts/bulut-guvenligi-ve-veri-koruma/</guid>
+      <description>Bulut bilişimde güvenlik önlemleri, veri koruma stratejileri ve en iyi uygulamalar hakkında kapsamlı rehber.</description>
+    </item>
+    <item>
+      <title>Bulut Güvenliği ve Veri Koruma</title>
       <link>http://localhost:1313/tr/posts/bulut-guvenligi-ve-veri-koruma/</link>
       <pubDate>Sun, 09 Nov 2025 00:22:00 +0300</pubDate>
       <guid>http://localhost:1313/tr/posts/bulut-guvenligi-ve-veri-koruma/</guid>
       <description>Bulut bilişimde güvenlik önlemleri, veri koruma stratejileri ve en iyi uygulamalar hakkında kapsamlı rehber.</description>
+    </item>
+    <item>
+      <title>Kişisel Verilerinizi Koruma Yöntemleri</title>
+      <link>http://localhost:1313/posts/kisisel-veri-guvenligi/</link>
+      <pubDate>Sun, 09 Nov 2025 00:15:00 +0300</pubDate>
+      <guid>http://localhost:1313/posts/kisisel-veri-guvenligi/</guid>
+      <description>Kişisel verilerinizi korumak için uygulayabileceğiniz etkili yöntemler ve gizlilik ipuçları.</description>
     </item>
     <item>
       <title>Kişisel Verilerinizi Koruma Yöntemleri</title>

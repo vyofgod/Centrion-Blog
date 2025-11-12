@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags/Sıfır Güven on Centrion</title>
+    <title>Sıfır Güven on Centrion</title>
     <link>http://localhost:1313/tags/s%C4%B1f%C4%B1r-g%C3%BCven/</link>
-    <description>Recent content in Tags/Sıfır Güven on Centrion</description>
+    <description>Recent content in Sıfır Güven on Centrion</description>
     <image>
       <title>Centrion</title>
       <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -13,6 +13,13 @@
     <language>tr</language>
     <lastBuildDate>Sun, 09 Nov 2025 00:23:00 +0300</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/s%C4%B1f%C4%B1r-g%C3%BCven/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sıfır Güven Mimarisi ve Geleceğin Trendleri</title>
+      <link>http://localhost:1313/posts/sifir-guven-mimarisi-ve-gelecegin-trendleri/</link>
+      <pubDate>Sun, 09 Nov 2025 00:23:00 +0300</pubDate>
+      <guid>http://localhost:1313/posts/sifir-guven-mimarisi-ve-gelecegin-trendleri/</guid>
+      <description>Sıfır Güven mimarisi, yapay zeka destekli güvenlik çözümleri ve gelecekteki siber güvenlik trendleri hakkında kapsamlı rehber.</description>
+    </item>
     <item>
       <title>Sıfır Güven Mimarisi ve Geleceğin Trendleri</title>
       <link>http://localhost:1313/tr/posts/sifir-guven-mimarisi-ve-gelecegin-trendleri/</link>
