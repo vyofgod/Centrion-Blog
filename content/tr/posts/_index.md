@@ -1,0 +1,5 @@
+---
+title: "Yazılar"
+aliases:
+  - "/posts/"
+---
