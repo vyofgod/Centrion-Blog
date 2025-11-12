@@ -176,6 +176,8 @@ languages:
     weight: 1
     title: "Centrion"
     params:
+      showtoc: true
+      tocopen: false
       profileMode:
         enabled: true
         title: "Merhaba, Ben VyOfGod"
