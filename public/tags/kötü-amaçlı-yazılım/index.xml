@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Kötü Amaçlı Yazılım on Centrion</title>
+    <title>Tags/Kötü Amaçlı Yazılım on Centrion</title>
     <link>http://localhost:1313/tags/k%C3%B6t%C3%BC-ama%C3%A7l%C4%B1-yaz%C4%B1l%C4%B1m/</link>
-    <description>Recent content in Kötü Amaçlı Yazılım on Centrion</description>
+    <description>Recent content in Tags/Kötü Amaçlı Yazılım on Centrion</description>
     <image>
       <title>Centrion</title>
       <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -13,13 +13,6 @@
     <language>tr</language>
     <lastBuildDate>Sun, 09 Nov 2025 00:17:00 +0300</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/k%C3%B6t%C3%BC-ama%C3%A7l%C4%B1-yaz%C4%B1l%C4%B1m/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Zararlı Yazılımlara Karşı Savunma</title>
-      <link>http://localhost:1313/posts/zararli-yazilimlara-karsi-savunma/</link>
-      <pubDate>Sun, 09 Nov 2025 00:17:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/zararli-yazilimlara-karsi-savunma/</guid>
-      <description>Zararlı yazılım türleri, bulaşma yolları ve korunma yöntemleri hakkında kapsamlı rehber.</description>
-    </item>
     <item>
       <title>Zararlı Yazılımlara Karşı Savunma</title>
       <link>http://localhost:1313/tr/posts/zararli-yazilimlara-karsi-savunma/</link>

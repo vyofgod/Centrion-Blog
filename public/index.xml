@@ -15,24 +15,10 @@
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sıfır Güven Mimarisi ve Geleceğin Trendleri</title>
-      <link>http://localhost:1313/posts/sifir-guven-mimarisi-ve-gelecegin-trendleri/</link>
-      <pubDate>Sun, 09 Nov 2025 00:23:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/sifir-guven-mimarisi-ve-gelecegin-trendleri/</guid>
-      <description>Sıfır Güven mimarisi, yapay zeka destekli güvenlik çözümleri ve gelecekteki siber güvenlik trendleri hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Sıfır Güven Mimarisi ve Geleceğin Trendleri</title>
       <link>http://localhost:1313/tr/posts/sifir-guven-mimarisi-ve-gelecegin-trendleri/</link>
       <pubDate>Sun, 09 Nov 2025 00:23:00 +0300</pubDate>
       <guid>http://localhost:1313/tr/posts/sifir-guven-mimarisi-ve-gelecegin-trendleri/</guid>
       <description>Sıfır Güven mimarisi, yapay zeka destekli güvenlik çözümleri ve gelecekteki siber güvenlik trendleri hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Bulut Güvenliği ve Veri Koruma</title>
-      <link>http://localhost:1313/posts/bulut-guvenligi-ve-veri-koruma/</link>
-      <pubDate>Sun, 09 Nov 2025 00:22:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/bulut-guvenligi-ve-veri-koruma/</guid>
-      <description>Bulut bilişimde güvenlik önlemleri, veri koruma stratejileri ve en iyi uygulamalar hakkında kapsamlı rehber.</description>
     </item>
     <item>
       <title>Bulut Güvenliği ve Veri Koruma</title>
@@ -43,24 +29,10 @@
     </item>
     <item>
       <title>Sızma Testi Temelleri</title>
-      <link>http://localhost:1313/posts/sizma-testi-temelleri/</link>
-      <pubDate>Sun, 09 Nov 2025 00:21:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/sizma-testi-temelleri/</guid>
-      <description>Sızma testi (pentest) temelleri, metodolojileri ve araçları hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Sızma Testi Temelleri</title>
       <link>http://localhost:1313/tr/posts/sizma-testi-temelleri/</link>
       <pubDate>Sun, 09 Nov 2025 00:21:00 +0300</pubDate>
       <guid>http://localhost:1313/tr/posts/sizma-testi-temelleri/</guid>
       <description>Sızma testi (pentest) temelleri, metodolojileri ve araçları hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>İleri Düzey Ağ Güvenliği</title>
-      <link>http://localhost:1313/posts/ileri-duzey-ag-guvenligi/</link>
-      <pubDate>Sun, 09 Nov 2025 00:20:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/ileri-duzey-ag-guvenligi/</guid>
-      <description>İleri düzey ağ güvenliği kavramları, tehditler ve koruma yöntemleri hakkında kapsamlı rehber.</description>
     </item>
     <item>
       <title>İleri Düzey Ağ Güvenliği</title>
@@ -71,24 +43,10 @@
     </item>
     <item>
       <title>Sosyal Mühendislik Saldırıları ve Savunma</title>
-      <link>http://localhost:1313/posts/sosyal-muhendislik-saldirilari/</link>
-      <pubDate>Sun, 09 Nov 2025 00:19:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/sosyal-muhendislik-saldirilari/</guid>
-      <description>Sosyal mühendislik saldırıları, türleri ve bu saldırılara karşı korunma yöntemleri hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Sosyal Mühendislik Saldırıları ve Savunma</title>
       <link>http://localhost:1313/tr/posts/sosyal-muhendislik-saldirilari/</link>
       <pubDate>Sun, 09 Nov 2025 00:19:00 +0300</pubDate>
       <guid>http://localhost:1313/tr/posts/sosyal-muhendislik-saldirilari/</guid>
       <description>Sosyal mühendislik saldırıları, türleri ve bu saldırılara karşı korunma yöntemleri hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Kriptoloji ve Şifreleme Teknikleri</title>
-      <link>http://localhost:1313/posts/kriptoloji-ve-sifreleme-teknikleri/</link>
-      <pubDate>Sun, 09 Nov 2025 00:18:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/kriptoloji-ve-sifreleme-teknikleri/</guid>
-      <description>Temel kriptoloji kavramları, şifreleme teknikleri ve kriptografinin günlük hayattaki kullanımları hakkında kapsamlı rehber.</description>
     </item>
     <item>
       <title>Kriptoloji ve Şifreleme Teknikleri</title>
@@ -99,24 +57,10 @@
     </item>
     <item>
       <title>Zararlı Yazılımlara Karşı Savunma</title>
-      <link>http://localhost:1313/posts/zararli-yazilimlara-karsi-savunma/</link>
-      <pubDate>Sun, 09 Nov 2025 00:17:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/zararli-yazilimlara-karsi-savunma/</guid>
-      <description>Zararlı yazılım türleri, bulaşma yolları ve korunma yöntemleri hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Zararlı Yazılımlara Karşı Savunma</title>
       <link>http://localhost:1313/tr/posts/zararli-yazilimlara-karsi-savunma/</link>
       <pubDate>Sun, 09 Nov 2025 00:17:00 +0300</pubDate>
       <guid>http://localhost:1313/tr/posts/zararli-yazilimlara-karsi-savunma/</guid>
       <description>Zararlı yazılım türleri, bulaşma yolları ve korunma yöntemleri hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Ağ Güvenliği ve VPN Kullanımı</title>
-      <link>http://localhost:1313/posts/ag-guvenligi-ve-vpn/</link>
-      <pubDate>Sun, 09 Nov 2025 00:16:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/ag-guvenligi-ve-vpn/</guid>
-      <description>Ev ve iş ağlarınızı güvenli hale getirme ve VPN kullanımının önemi hakkında kapsamlı rehber.</description>
     </item>
     <item>
       <title>Ağ Güvenliği ve VPN Kullanımı</title>
@@ -127,13 +71,6 @@
     </item>
     <item>
       <title>Kişisel Verilerinizi Koruma Yöntemleri</title>
-      <link>http://localhost:1313/posts/kisisel-veri-guvenligi/</link>
-      <pubDate>Sun, 09 Nov 2025 00:15:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/kisisel-veri-guvenligi/</guid>
-      <description>Kişisel verilerinizi korumak için uygulayabileceğiniz etkili yöntemler ve gizlilik ipuçları.</description>
-    </item>
-    <item>
-      <title>Kişisel Verilerinizi Koruma Yöntemleri</title>
       <link>http://localhost:1313/tr/posts/kisisel-veri-guvenligi/</link>
       <pubDate>Sun, 09 Nov 2025 00:15:00 +0300</pubDate>
       <guid>http://localhost:1313/tr/posts/kisisel-veri-guvenligi/</guid>
@@ -141,24 +78,10 @@
     </item>
     <item>
       <title>İnternet Güvenliği Temelleri</title>
-      <link>http://localhost:1313/posts/internet-guvenligi-temelleri/</link>
-      <pubDate>Sun, 09 Nov 2025 00:14:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/internet-guvenligi-temelleri/</guid>
-      <description>Yeni başlayanlar için temel internet güvenlik ipuçları ve güvenli dijital alışkanlıklar.</description>
-    </item>
-    <item>
-      <title>İnternet Güvenliği Temelleri</title>
       <link>http://localhost:1313/tr/posts/internet-guvenligi-temelleri/</link>
       <pubDate>Sun, 09 Nov 2025 00:14:00 +0300</pubDate>
       <guid>http://localhost:1313/tr/posts/internet-guvenligi-temelleri/</guid>
       <description>Yeni başlayanlar için temel internet güvenlik ipuçları ve güvenli dijital alışkanlıklar.</description>
-    </item>
-    <item>
-      <title>Temel Siber Güvenlik Önlemleri</title>
-      <link>http://localhost:1313/posts/ilk-yazi/</link>
-      <pubDate>Sun, 09 Nov 2025 00:12:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/ilk-yazi/</guid>
-      <description>Günlük dijital yaşamınızda uygulayabileceğiniz temel siber güvenlik önlemleri ve ipuçları.</description>
     </item>
     <item>
       <title>Temel Siber Güvenlik Önlemleri</title>

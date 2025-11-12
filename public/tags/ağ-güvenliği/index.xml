@@ -15,24 +15,10 @@
     <atom:link href="http://localhost:1313/tags/a%C4%9F-g%C3%BCvenli%C4%9Fi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>İleri Düzey Ağ Güvenliği</title>
-      <link>http://localhost:1313/posts/ileri-duzey-ag-guvenligi/</link>
-      <pubDate>Sun, 09 Nov 2025 00:20:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/ileri-duzey-ag-guvenligi/</guid>
-      <description>İleri düzey ağ güvenliği kavramları, tehditler ve koruma yöntemleri hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>İleri Düzey Ağ Güvenliği</title>
       <link>http://localhost:1313/tr/posts/ileri-duzey-ag-guvenligi/</link>
       <pubDate>Sun, 09 Nov 2025 00:20:00 +0300</pubDate>
       <guid>http://localhost:1313/tr/posts/ileri-duzey-ag-guvenligi/</guid>
       <description>İleri düzey ağ güvenliği kavramları, tehditler ve koruma yöntemleri hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Ağ Güvenliği ve VPN Kullanımı</title>
-      <link>http://localhost:1313/posts/ag-guvenligi-ve-vpn/</link>
-      <pubDate>Sun, 09 Nov 2025 00:16:00 +0300</pubDate>
-      <guid>http://localhost:1313/posts/ag-guvenligi-ve-vpn/</guid>
-      <description>Ev ve iş ağlarınızı güvenli hale getirme ve VPN kullanımının önemi hakkında kapsamlı rehber.</description>
     </item>
     <item>
       <title>Ağ Güvenliği ve VPN Kullanımı</title>

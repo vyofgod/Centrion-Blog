@@ -1194,3 +1194,92 @@ a, button, input, textarea, select {
 .post-entry .entry-footer .post-views {
     margin-left: 0.5rem !important;
 }
+
+/* ============================================
+   GISCUS COMMENTS SECTION - MINIMAL DESIGN
+   ============================================ */
+
+.comments-section {
+    margin-top: 5rem !important;
+    padding-top: 0 !important;
+    border-top: none !important;
+}
+
+.comments-header {
+    margin-bottom: 1.5rem !important;
+    text-align: left !important;
+}
+
+.comments-header h3 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.35rem !important;
+    color: var(--primary) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    letter-spacing: -0.01em !important;
+}
+
+.comments-header p {
+    font-size: 0.875rem !important;
+    color: var(--secondary) !important;
+    opacity: 0.65 !important;
+    margin: 0 !important;
+    font-weight: 400 !important;
+}
+
+.giscus-wrapper {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    transition: none !important;
+}
+
+.giscus-wrapper:hover {
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Giscus iframe styling - clean and borderless */
+.giscus-frame {
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+/* Remove any background colors */
+.giscus, .giscus-frame {
+    background: transparent !important;
+}
+
+/* Dark mode - keep it minimal */
+@media (prefers-color-scheme: dark) {
+    .giscus-wrapper {
+        background: transparent !important;
+        border: none !important;
+    }
+    
+    .giscus-wrapper:hover {
+        box-shadow: none !important;
+    }
+}
+
+/* Mobile responsive comments */
+@media (max-width: 768px) {
+    .comments-section {
+        margin-top: 4rem !important;
+    }
+    
+    .comments-header h3 {
+        font-size: 1.35rem !important;
+    }
+    
+    .comments-header p {
+        font-size: 0.825rem !important;
+    }
+    
+    .giscus-wrapper {
+        padding: 0 !important;
+    }
+}

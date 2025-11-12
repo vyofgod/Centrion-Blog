@@ -8,41 +8,23 @@
     <loc>http://localhost:1313/</loc>
     <lastmod>2025-11-09T00:23:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/gelecek-g%C3%BCvenlik-teknolojileri/</loc>
-    <lastmod>2025-11-09T00:23:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-11-09T00:23:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/s%C4%B1f%C4%B1r-g%C3%BCven/</loc>
-    <lastmod>2025-11-09T00:23:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/sifir-guven-mimarisi-ve-gelecegin-trendleri/</loc>
-    <lastmod>2025-11-09T00:23:00+03:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tr/posts/sifir-guven-mimarisi-ve-gelecegin-trendleri/</loc>
-    <lastmod>2025-11-09T00:23:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/siber-g%C3%BCvenlik-trendleri/</loc>
     <lastmod>2025-11-09T00:23:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-11-09T00:23:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/zero-trust/</loc>
+    <loc>http://localhost:1313/tags/gelecek-g%C3%BCvenlik-teknolojileri/</loc>
     <lastmod>2025-11-09T00:23:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/bulut-bili%C5%9Fim-g%C3%BCvenli%C4%9Fi/</loc>
-    <lastmod>2025-11-09T00:22:00+03:00</lastmod>
+    <loc>http://localhost:1313/tags/s%C4%B1f%C4%B1r-g%C3%BCven/</loc>
+    <lastmod>2025-11-09T00:23:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/bulut-g%C3%BCvenli%C4%9Fi/</loc>
-    <lastmod>2025-11-09T00:22:00+03:00</lastmod>
+    <loc>http://localhost:1313/tags/siber-g%C3%BCvenlik-trendleri/</loc>
+    <lastmod>2025-11-09T00:23:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/bulut-g%C3%BCvenli%C4%9Fi/</loc>
-    <lastmod>2025-11-09T00:22:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/bulut-guvenligi-ve-veri-koruma/</loc>
-    <lastmod>2025-11-09T00:22:00+03:00</lastmod>
+    <loc>http://localhost:1313/tags/zero-trust/</loc>
+    <lastmod>2025-11-09T00:23:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tr/posts/bulut-guvenligi-ve-veri-koruma/</loc>
     <lastmod>2025-11-09T00:22:00+03:00</lastmod>
@@ -50,11 +32,26 @@
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2025-11-09T00:22:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/veri-g%C3%BCvenli%C4%9Fi/</loc>
+    <loc>http://localhost:1313/categories/bulut-g%C3%BCvenli%C4%9Fi/</loc>
+    <lastmod>2025-11-09T00:22:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/bulut-bili%C5%9Fim-g%C3%BCvenli%C4%9Fi/</loc>
+    <lastmod>2025-11-09T00:22:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/bulut-g%C3%BCvenli%C4%9Fi/</loc>
     <lastmod>2025-11-09T00:22:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/veri-koruma/</loc>
     <lastmod>2025-11-09T00:22:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/veri-g%C3%BCvenli%C4%9Fi/</loc>
+    <lastmod>2025-11-09T00:22:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tr/posts/sizma-testi-temelleri/</loc>
+    <lastmod>2025-11-09T00:21:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/siber-g%C3%BCvenlik/</loc>
+    <lastmod>2025-11-09T00:21:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/etik-hacking/</loc>
     <lastmod>2025-11-09T00:21:00+03:00</lastmod>
@@ -65,16 +62,10 @@
     <loc>http://localhost:1313/tags/s%C4%B1zma-testi/</loc>
     <lastmod>2025-11-09T00:21:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/sizma-testi-temelleri/</loc>
-    <lastmod>2025-11-09T00:21:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tr/posts/sizma-testi-temelleri/</loc>
-    <lastmod>2025-11-09T00:21:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/siber-g%C3%BCvenlik/</loc>
-    <lastmod>2025-11-09T00:21:00+03:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/a%C4%9F-g%C3%BCvenli%C4%9Fi/</loc>
+    <lastmod>2025-11-09T00:20:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tr/posts/ileri-duzey-ag-guvenligi/</loc>
     <lastmod>2025-11-09T00:20:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/g%C3%BCvenlik-duvar%C4%B1/</loc>
@@ -83,16 +74,13 @@
     <loc>http://localhost:1313/tags/ids/ips/</loc>
     <lastmod>2025-11-09T00:20:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/ileri-duzey-ag-guvenligi/</loc>
-    <lastmod>2025-11-09T00:20:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tr/posts/ileri-duzey-ag-guvenligi/</loc>
-    <lastmod>2025-11-09T00:20:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/doland%C4%B1r%C4%B1c%C4%B1l%C4%B1k/</loc>
+    <loc>http://localhost:1313/tags/g%C3%BCvenlik/</loc>
     <lastmod>2025-11-09T00:19:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/g%C3%BCvenlik/</loc>
+    <loc>http://localhost:1313/tr/posts/sosyal-muhendislik-saldirilari/</loc>
+    <lastmod>2025-11-09T00:19:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/doland%C4%B1r%C4%B1c%C4%B1l%C4%B1k/</loc>
     <lastmod>2025-11-09T00:19:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/phishing/</loc>
@@ -101,11 +89,8 @@
     <loc>http://localhost:1313/tags/sosyal-m%C3%BChendislik/</loc>
     <lastmod>2025-11-09T00:19:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/sosyal-muhendislik-saldirilari/</loc>
-    <lastmod>2025-11-09T00:19:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tr/posts/sosyal-muhendislik-saldirilari/</loc>
-    <lastmod>2025-11-09T00:19:00+03:00</lastmod>
+    <loc>http://localhost:1313/tr/posts/kriptoloji-ve-sifreleme-teknikleri/</loc>
+    <lastmod>2025-11-09T00:18:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/kriptografi/</loc>
     <lastmod>2025-11-09T00:18:00+03:00</lastmod>
@@ -113,14 +98,11 @@
     <loc>http://localhost:1313/tags/kriptoloji/</loc>
     <lastmod>2025-11-09T00:18:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/kriptoloji-ve-sifreleme-teknikleri/</loc>
-    <lastmod>2025-11-09T00:18:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tr/posts/kriptoloji-ve-sifreleme-teknikleri/</loc>
-    <lastmod>2025-11-09T00:18:00+03:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/%C5%9Fifreleme/</loc>
     <lastmod>2025-11-09T00:18:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/zararl%C4%B1-yaz%C4%B1l%C4%B1m/</loc>
+    <lastmod>2025-11-09T00:17:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/antivir%C3%BCs/</loc>
     <lastmod>2025-11-09T00:17:00+03:00</lastmod>
@@ -128,25 +110,16 @@
     <loc>http://localhost:1313/tags/k%C3%B6t%C3%BC-ama%C3%A7l%C4%B1-yaz%C4%B1l%C4%B1m/</loc>
     <lastmod>2025-11-09T00:17:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/zararl%C4%B1-yaz%C4%B1l%C4%B1m/</loc>
-    <lastmod>2025-11-09T00:17:00+03:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/zararl%C4%B1-yaz%C4%B1l%C4%B1m/</loc>
-    <lastmod>2025-11-09T00:17:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/zararli-yazilimlara-karsi-savunma/</loc>
     <lastmod>2025-11-09T00:17:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tr/posts/zararli-yazilimlara-karsi-savunma/</loc>
     <lastmod>2025-11-09T00:17:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/a%C4%9F-g%C3%BCvenli%C4%9Fi/</loc>
-    <lastmod>2025-11-09T00:16:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/ag-guvenligi-ve-vpn/</loc>
-    <lastmod>2025-11-09T00:16:00+03:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tr/posts/ag-guvenligi-ve-vpn/</loc>
+    <lastmod>2025-11-09T00:16:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/a%C4%9F-g%C3%BCvenli%C4%9Fi/</loc>
     <lastmod>2025-11-09T00:16:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/g%C3%BCvenli-ba%C4%9Flant%C4%B1/</loc>
@@ -155,43 +128,34 @@
     <loc>http://localhost:1313/tags/vpn/</loc>
     <lastmod>2025-11-09T00:16:00+03:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/categories/veri-koruma/</loc>
+    <lastmod>2025-11-09T00:15:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tr/posts/kisisel-veri-guvenligi/</loc>
+    <lastmod>2025-11-09T00:15:00+03:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/gizlilik/</loc>
     <lastmod>2025-11-09T00:15:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/ki%C5%9Fisel-veri/</loc>
     <lastmod>2025-11-09T00:15:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/kisisel-veri-guvenligi/</loc>
-    <lastmod>2025-11-09T00:15:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tr/posts/kisisel-veri-guvenligi/</loc>
-    <lastmod>2025-11-09T00:15:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/veri-koruma/</loc>
-    <lastmod>2025-11-09T00:15:00+03:00</lastmod>
+    <loc>http://localhost:1313/tr/posts/internet-guvenligi-temelleri/</loc>
+    <lastmod>2025-11-09T00:14:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/internet-g%C3%BCvenli%C4%9Fi/</loc>
     <lastmod>2025-11-09T00:14:00+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/internet-guvenligi-temelleri/</loc>
-    <lastmod>2025-11-09T00:14:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tr/posts/internet-guvenligi-temelleri/</loc>
+    <loc>http://localhost:1313/tags/temel-g%C3%BCvenlik/</loc>
     <lastmod>2025-11-09T00:14:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/temel-g%C3%BCvenlik/</loc>
-    <lastmod>2025-11-09T00:14:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/temel-g%C3%BCvenlik/</loc>
     <lastmod>2025-11-09T00:14:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/g%C3%BCvenlik-ipu%C3%A7lar%C4%B1/</loc>
     <lastmod>2025-11-09T00:12:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/g%C3%BCvenlik-%C3%B6nlemleri/</loc>
-    <lastmod>2025-11-09T00:12:00+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/ilk-yazi/</loc>
     <lastmod>2025-11-09T00:12:00+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tr/posts/ilk-yazi/</loc>

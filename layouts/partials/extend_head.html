@@ -40,3 +40,12 @@
 {{- else }}
 <script type="module" crossorigin="anonymous" src="{{ $view.RelPermalink }}"></script>
 {{- end }}
+
+{{- /* Load input sanitizer for XSS/SQL injection protection */ -}}
+{{- $sanitizer := resources.Get "js/input-sanitizer.js" | resources.Minify }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $sanitizer = $sanitizer | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $sanitizer.RelPermalink }}" integrity="{{ $sanitizer.Data.Integrity }}"></script>
+{{- else }}
+<script defer crossorigin="anonymous" src="{{ $sanitizer.RelPermalink }}"></script>
+{{- end }}

@@ -22,6 +22,35 @@ minify:
   disableXML: true
   minifyOutput: true
 
+# Security settings
+security:
+  enableInlineShortcodes: false
+  exec:
+    allow: ['^(dart-)?sass(-embedded)?$', '^go$', '^npx$', '^postcss$', '^tailwindcss$']
+    osEnv: ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\w+|(XDG_CONFIG_)?HOME|USERPROFILE|SSH_AUTH_SOCK|DISPLAY|LANG|SYSTEMDRIVE)$']
+  funcs:
+    getenv: ['^HUGO_', '^CI$']
+  http:
+    methods: ['(?i)GET|POST']
+    urls: ['.*']
+  
+# Privacy settings
+privacy:
+  disqus:
+    disable: true
+  googleAnalytics:
+    anonymizeIP: true
+    respectDoNotTrack: true
+    useSessionStorage: true
+  instagram:
+    disable: true
+  twitter:
+    enableDNT: true
+  vimeo:
+    disable: true
+  youtube:
+    privacyEnhanced: true
+
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: "Centrion"
@@ -45,7 +74,7 @@ params:
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
-  comments: false
+  comments: true
   hidemeta: false
   hideSummary: false
   showtoc: true
@@ -96,6 +125,22 @@ params:
 
   # Hide footer
   hideFooter: true
+
+  # Giscus Comments Configuration
+  # Visit https://giscus.app to generate your configuration
+  giscus:
+    repo: "vyofgod/Centrion-Blog"  # GitHub repo (owner/repo)
+    repoID: "R_kgDOQSzwhg"  # Get from giscus.app
+    category: "General"  # Discussion category name
+    categoryID: "DIC_kwDOQSzwhs4CxuuC"  # Get from giscus.app
+    mapping: "pathname"  # Use page pathname for discussion mapping
+    strict: "0"  # Use strict title matching
+    reactionsEnabled: "1"  # Enable reactions
+    emitMetadata: "0"  # Emit discussion metadata
+    inputPosition: "bottom"  # Comment box position (top/bottom)
+    theme: "preferred_color_scheme"  # Auto theme based on site theme
+    lang: "tr"  # Language (tr for Turkish)
+    loading: "lazy"  # Lazy load comments
 
   analytics:
     google:
