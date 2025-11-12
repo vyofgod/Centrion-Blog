@@ -49,3 +49,12 @@
 {{- else }}
 <script defer crossorigin="anonymous" src="{{ $sanitizer.RelPermalink }}"></script>
 {{- end }}
+
+{{- /* Load TOC control script to keep it closed by default */ -}}
+{{- $tocControl := resources.Get "js/toc-control.js" | resources.Minify }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $tocControl = $tocControl | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $tocControl.RelPermalink }}" integrity="{{ $tocControl.Data.Integrity }}"></script>
+{{- else }}
+<script defer crossorigin="anonymous" src="{{ $tocControl.RelPermalink }}"></script>
+{{- end }}
