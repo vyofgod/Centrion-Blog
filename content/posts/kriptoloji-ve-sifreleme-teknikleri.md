@@ -16,119 +16,119 @@ ShowWordCount: true
 UseHugoToc: true
 ---
 
-# Cryptography and Encryption Techniques
+# Kriptoloji ve Şifreleme Teknikleri
 
-Cryptography is the science used for the secure transmission and storage of information. In today's digital world, cryptography is of vital importance in many areas, from banking transactions to personal messaging. In this article, we will examine basic cryptography concepts and how they are used in daily life.
+Kriptoloji, bilgilerin güvenli bir şekilde iletilmesi ve saklanması için kullanılan bilim dalıdır. Günümüz dijital dünyasında kriptografi, bankacılık işlemlerinden kişisel mesajlaşmaya kadar pek çok alanda hayati önem taşır. Bu yazıda temel kriptografi kavramlarını ve günlük hayattaki kullanım alanlarını inceleyeceğiz.
 
-## 1. Basic Cryptography Concepts
+## 1. Temel Kriptografi Kavramları
 
-### Encryption
-- **Plaintext**: Unencrypted, readable data
-- **Ciphertext**: Encrypted, unreadable data
-- **Key**: Secret information used in encryption and decryption operations
-- **Algorithm**: Mathematical functions that perform encryption
+### Şifreleme
+- **Açık Metin (Plaintext)**: Şifrelenmemiş, okunabilir veri
+- **Şifreli Metin (Ciphertext)**: Şifrelenmiş, okunamaz veri
+- **Anahtar**: Şifreleme ve çözme işlemlerinde kullanılan gizli bilgi
+- **Algoritma**: Şifrelemeyi gerçekleştiren matematiksel fonksiyonlar
 
-### Basic Encryption Types
+### Temel Şifreleme Türleri
 
-#### 1. Symmetric Encryption
-- The same key is used for both encryption and decryption
-- **Advantages**: Fast, requires less processing power
-- **Disadvantages**: Key distribution is difficult
-- **Examples**: AES, DES, 3DES, Blowfish
+#### 1. Simetrik Şifreleme
+- Şifreleme ve çözme için aynı anahtar kullanılır
+- **Avantajları**: Hızlıdır, daha az işlem gücü gerektirir
+- **Dezavantajları**: Anahtar dağıtımı zordur
+- **Örnekler**: AES, DES, 3DES, Blowfish
 
-#### 2. Asymmetric Encryption
-- Uses public key and private key
-- **Advantages**: Provides secure key exchange
-- **Disadvantages**: Slower, requires more processing power
-- **Examples**: RSA, ECC, ElGamal
+#### 2. Asimetrik Şifreleme
+- Genel anahtar ve özel anahtar çiftleri kullanılır
+- **Avantajları**: Güvenli anahtar değişimi sağlar
+- **Dezavantajları**: Daha yavaştır, daha fazla işlem gücü gerektirir
+- **Örnekler**: RSA, ECC, ElGamal
 
-## 2. Modern Encryption Standards
+## 2. Modern Şifreleme Standartları
 
-### Advanced Encryption Standard (AES)
-- Uses 128, 192, or 256-bit key length
-- Block encryption method (128-bit block size)
-- Today's most widely used symmetric encryption standard
+### Gelişmiş Şifreleme Standardı (AES)
+- 128, 192 veya 256 bit anahtar uzunluğu kullanır
+- Blok şifreleme yöntemi (128 bit blok boyutu)
+- Günümüzde en yaygın kullanılan simetrik şifreleme standardıdır
 
 ### RSA (Rivest-Shamir-Adleman)
-- Based on the difficulty of factoring prime numbers
-- Generally used for digital signatures and key exchange
-- 2048-bit or longer keys are recommended
+- Asal sayıların çarpanlara ayrılmasının zorluğuna dayanır
+- Genellikle dijital imzalar ve anahtar değişimi için kullanılır
+- 2048 bit ve üzeri anahtar uzunlukları önerilir
 
-### Elliptic Curve Cryptography (ECC)
-- Provides high security with shorter keys
-- Ideal especially for mobile devices or devices with limited resources
-- Widely used in Bitcoin and other cryptocurrencies
+### Eliptik Eğri Kriptografisi (ECC)
+- Daha kısa anahtarlarla yüksek güvenlik sağlar
+- Özellikle mobil veya kısıtlı kaynaklara sahip cihazlar için idealdir
+- Bitcoin ve diğer kripto para birimlerinde yaygın olarak kullanılır
 
-## 3. Cryptographic Hash Functions
+## 3. Kriptografik Karma (Hash) Fonksiyonları
 
-### Features
-- One-way (irreversible)
-- The same input always produces the same output
-- A small input change produces a completely different output
-- Resistant to collisions
+### Özellikler
+- Tek yönlüdür (geri döndürülemez)
+- Aynı girdi her zaman aynı çıktıyı üretir
+- Girdideki küçük değişiklik tamamen farklı bir çıktı üretir
+- Çakışmalara dayanıklıdır
 
-### Common Hash Functions
-- **SHA-2 Family**: SHA-256, SHA-512
-- **SHA-3**: The newest standard
-- **BLAKE2**: High-speed alternative
+### Yaygın Karma Fonksiyonları
+- **SHA-2 Ailesi**: SHA-256, SHA-512
+- **SHA-3**: En yeni standart
+- **BLAKE2**: Yüksek hızlı alternatif
 
-## 4. Digital Signatures and Certificates
+## 4. Dijital İmzalar ve Sertifikalar
 
-### Digital Signatures
-- Verifies the integrity of the document and the identity of the sender
-- Uses asymmetric encryption
-- The slightest change in the signed data invalidates the signature
+### Dijital İmzalar
+- Belgenin bütünlüğünü ve gönderenin kimliğini doğrular
+- Asimetrik şifreleme kullanır
+- İmzalanan verideki en küçük değişiklik imzayı geçersiz kılar
 
-### Digital Certificates
-- Verifies ownership of a key pair
-- Issued by a trusted certificate authority (CA)
-- Used in HTTPS connections on websites
+### Dijital Sertifikalar
+- Bir anahtar çiftinin sahipliğini doğrular
+- Güvenilir bir sertifika otoritesi (CA) tarafından verilir
+- Web sitelerinde HTTPS bağlantılarında kullanılır
 
-## 5. Cryptography in Daily Life
+## 5. Günlük Hayatta Kriptografi
 
-### Communication Security
-- **SSL/TLS**: Secure communication on the web
-- **PGP/GPG**: Email encryption
-- **Signal Protocol**: Instant messaging applications
+### İletişim Güvenliği
+- **SSL/TLS**: Web üzerinde güvenli iletişim
+- **PGP/GPG**: E-posta şifreleme
+- **Signal Protokolü**: Anlık mesajlaşma uygulamaları
 
-### Data Storage
-- Full disk encryption (BitLocker, FileVault)
-- File and folder encryption
-- Cloud storage encryption
+### Veri Depolama
+- Tam disk şifreleme (BitLocker, FileVault)
+- Dosya ve klasör şifreleme
+- Bulut depolama şifrelemesi
 
-### Authentication
-- Two-factor authentication (2FA)
-- Biometric authentication
-- Hardware security keys (like YubiKey)
+### Kimlik Doğrulama
+- İki faktörlü kimlik doğrulama (2FA)
+- Biyometrik doğrulama
+- Donanım güvenlik anahtarları (YubiKey gibi)
 
-## 6. Quantum Cryptography and the Future
+## 6. Kuantum Kriptografisi ve Gelecek
 
-### The Threat of Quantum Computers
-- Can break current encryption methods
-- Asymmetric encryption methods like RSA and ECC are at risk
-- Quantum-resistant encryption algorithms are being developed
+### Kuantum Bilgisayarların Tehdidi
+- Mevcut şifreleme yöntemlerini kırma potansiyeline sahiptir
+- RSA ve ECC gibi asimetrik yöntemler risk altındadır
+- Kuantuma dayanıklı şifreleme algoritmaları geliştirilmektedir
 
-### Post-Quantum Cryptography
-- New algorithms resistant to quantum computers
-- Examples: Lattice-based, Hash-based, Code-based cryptography
-- NIST's post-quantum cryptography standardization efforts
+### Kuantum Sonrası Kriptografi
+- Kuantum bilgisayarlara dayanıklı yeni algoritmalar
+- Örnekler: Izgara (lattice) tabanlı, karma tabanlı, kod tabanlı kriptografi
+- NIST'in kuantum sonrası kriptografi standardizasyon çalışmaları
 
-## 7. Practical Security Recommendations
+## 7. Uygulamalı Güvenlik Önerileri
 
-### For Personal Use
-- Use strong and unique passwords
-- Use a password manager
-- Enable two-factor authentication
-- Prefer websites that use HTTPS
+### Bireysel Kullanım İçin
+- Güçlü ve benzersiz parolalar kullanın
+- Bir parola yöneticisi tercih edin
+- İki faktörlü kimlik doğrulamayı etkinleştirin
+- HTTPS kullanan web sitelerini tercih edin
 
-### For Developers
-- Use trusted crypto libraries
-- Don't try to write your own encryption algorithm
-- Follow current encryption standards
-- Regularly audit for security vulnerabilities
+### Geliştiriciler İçin
+- Güvenilir kripto kütüphaneleri kullanın
+- Kendi şifreleme algoritmanızı yazmaya çalışmayın
+- Güncel şifreleme standartlarını takip edin
+- Düzenli olarak güvenlik denetimleri yapın
 
-## Conclusion
+## Sonuç
 
-Cryptography is one of the cornerstones of the modern digital world and is an indispensable part of secure communication. When implemented correctly, it ensures the confidentiality, integrity, and authentication of your data. However, remember that even strong encryption can become ineffective due to user errors or weak implementations.
+Kriptografi, modern dijital dünyanın yapı taşlarından biridir ve güvenli iletişimin vazgeçilmez bir parçasıdır. Doğru uygulandığında verilerinizin gizliliğini, bütünlüğünü ve kimlik doğrulamasını sağlar. Ancak güçlü şifrelemenin bile kullanıcı hataları veya zayıf uygulamalar nedeniyle etkisiz hale gelebileceğini unutmayın.
 
-In our next article, we will cover "Social Engineering Attacks and Defense".
+Bir sonraki yazımızda "Sosyal Mühendislik Saldırıları ve Savunma" konusunu ele alacağız.

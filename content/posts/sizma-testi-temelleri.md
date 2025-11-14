@@ -16,185 +16,185 @@ ShowWordCount: true
 UseHugoToc: true
 ---
 
-# Penetration Testing Basics
+# Sızma Testi Temelleri
 
-Penetration testing (pentest) is a planned attack simulation performed by authorized persons to detect and evaluate security vulnerabilities in an information system. In this article, we will examine the basic steps of the penetration testing process, methods used, and popular tools.
+Sızma testi (pentest), yetkilendirilmiş kişiler tarafından bir bilgi sistemindeki güvenlik açıklarını tespit etmek ve değerlendirmek için gerçekleştirilen planlı saldırı simülasyonudur. Bu yazıda, sızma testi sürecinin temel adımlarını, kullanılan yöntemleri ve popüler araçları inceleyeceğiz.
 
-## 1. What is Penetration Testing?
+## 1. Sızma Testi Nedir?
 
-### Definition and Purpose
-- Detecting security vulnerabilities
-- Evaluating vulnerabilities
-- Testing the effectiveness of security measures
-- Meeting compliance requirements
+### Tanım ve Amaç
+- Güvenlik açıklarını tespit etmek
+- Açıkların etkisini değerlendirmek
+- Güvenlik önlemlerinin etkinliğini test etmek
+- Uyumluluk gereksinimlerini karşılamak
 
-### Types of Penetration Testing
+### Sızma Testi Türleri
 
-#### By Coverage
-- **Black Box Testing**: Tests performed without prior knowledge about the system
-- **White Box Testing**: Tests performed with full knowledge about the system
-- **Gray Box Testing**: Tests performed with limited knowledge
+#### Kapsama Göre
+- **Kara Kutu Testi**: Sistem hakkında ön bilgi olmadan yapılan testler
+- **Beyaz Kutu Testi**: Sistem hakkında tam bilgi ile yapılan testler
+- **Gri Kutu Testi**: Sınırlı bilgi ile yapılan testler
 
-#### By Access Level
-- External Network Tests
-- Internal Network Tests
-- Wireless Network Tests
-- Physical Security Tests
-- Social Engineering Tests
-- Web Application Tests
+#### Erişim Düzeyine Göre
+- Dış ağ testleri
+- İç ağ testleri
+- Kablosuz ağ testleri
+- Fiziksel güvenlik testleri
+- Sosyal mühendislik testleri
+- Web uygulama testleri
 
-## 2. Penetration Testing Stages
+## 2. Sızma Testi Aşamaları
 
-### 1. Planning and Reconnaissance
-- **Target Determination**: Scope and rules of the test
-- **Information Gathering (OSINT)**: Gathering information from open sources
-- **Active Reconnaissance**: Port scanning, service detection
+### 1. Planlama ve Keşif
+- **Hedef Belirleme**: Test kapsamı ve kurallarının tanımlanması
+- **Bilgi Toplama (OSINT)**: Açık kaynaklardan bilgi derleme
+- **Aktif Keşif**: Port tarama, servis tespiti
 
-### 2. Scanning and Vulnerability Analysis
-- Port Scanning (Nmap)
-- Service and Version Detection
-- Vulnerability Scanning (Nessus, OpenVAS)
+### 2. Tarama ve Zafiyet Analizi
+- Port taraması (Nmap)
+- Servis ve sürüm tespiti
+- Zafiyet taraması (Nessus, OpenVAS)
 
-### 3. Exploitation
-- Exploiting vulnerabilities
-- Privilege Escalation
-- Lateral/Vertical Movement
+### 3. Sömürü (Exploitation)
+- Zafiyetlerin istismarı
+- Yetki yükseltme
+- Yatay/dikey hareket
 
-### 4. Maintaining Access
-- Establishing Persistent Access
-- Data Exfiltration
-- Clearing Traces
+### 4. Erişimi Sürdürme
+- Kalıcı erişim sağlama
+- Veri sızdırma
+- İzleri silme
 
-### 5. Reporting
-- Documentation of Findings
-- Risk Assessment
-- Improvement Recommendations
+### 5. Raporlama
+- Bulguların dokümantasyonu
+- Risk değerlendirmesi
+- İyileştirme önerileri
 
-## 3. Basic Penetration Testing Tools
+## 3. Temel Sızma Testi Araçları
 
-### Information Gathering
-- **Nmap**: Network discovery and security auditing
-- **Recon-ng**: Information gathering framework
-- **theHarvester**: Email, domain, IP collection
+### Bilgi Toplama
+- **Nmap**: Ağ keşfi ve güvenlik denetimi
+- **Recon-ng**: Bilgi toplama çerçevesi
+- **theHarvester**: E-posta, alan adı, IP toplama
 
-### Vulnerability Scanning
-- **Nessus**: Commercial vulnerability scanner
-- **OpenVAS**: Open source vulnerability scanner
-- **Nikto**: Web server scanner
+### Zafiyet Taraması
+- **Nessus**: Ticari zafiyet tarayıcısı
+- **OpenVAS**: Açık kaynak zafiyet tarayıcısı
+- **Nikto**: Web sunucusu tarayıcısı
 
-### Exploitation Frameworks
-- **Metasploit Framework**: Penetration testing platform
-- **Burp Suite**: Web application security testing tool
-- **OWASP ZAP**: Web application security scanner
+### Sömürü Çerçeveleri
+- **Metasploit Framework**: Sızma testi platformu
+- **Burp Suite**: Web uygulama güvenlik testi aracı
+- **OWASP ZAP**: Web uygulama güvenlik tarayıcısı
 
-### Password Cracking
-- **John the Ripper**: Password cracking tool
-- **Hashcat**: Advanced password cracking
-- **Hydra**: Password cracking for network services
+### Parola Kırma
+- **John the Ripper**: Parola kırma aracı
+- **Hashcat**: Gelişmiş parola kırma
+- **Hydra**: Ağ servisleri için parola kırma
 
-### Wireless Network Tests
-- **Aircrack-ng**: Wireless network security tool
-- **Wireshark**: Network protocol analyzer
-- **Kismet**: Wireless network detector
+### Kablosuz Ağ Testleri
+- **Aircrack-ng**: Kablosuz ağ güvenlik aracı
+- **Wireshark**: Ağ protokol analizörü
+- **Kismet**: Kablosuz ağ tespit aracı
 
-## 4. Legal and Ethical Dimension
+## 4. Hukuki ve Etik Boyut
 
-### Legal Regulations
-- **Turkey**: Law No. 5651, GDPR
-- **USA**: Computer Fraud and Abuse Act (CFAA)
-- **EU**: General Data Protection Regulation (GDPR)
+### Hukuki Düzenlemeler
+- **Türkiye**: 5651 sayılı Kanun, KVKK
+- **ABD**: Computer Fraud and Abuse Act (CFAA)
+- **AB**: General Data Protection Regulation (GDPR)
 
-### Ethical Rules
-- Tests should not be performed without written permission
-- Test scope should be determined in advance
-- Findings should be kept confidential
-- Systems should be restored after testing
+### Etik Kurallar
+- Yazılı izin olmadan test yapılmamalıdır
+- Test kapsamı önceden belirlenmelidir
+- Bulgular gizli tutulmalıdır
+- Test sonrası sistemler eski haline getirilmelidir
 
-## 5. Penetration Testing Certifications
+## 5. Sızma Testi Sertifikaları
 
-### Entry Level
+### Başlangıç Seviyesi
 - **eJPT (eLearnSecurity Junior Penetration Tester)**
 - **CompTIA Security+**
 - **CEH (Certified Ethical Hacker)**
 
-### Intermediate Level
+### Orta Seviye
 - **OSCP (Offensive Security Certified Professional)**
 - **eCPPT (eLearnSecurity Certified Professional Penetration Tester)**
 - **GPEN (GIAC Penetration Tester)**
 
-### Advanced Level
+### İleri Seviye
 - **OSCE (Offensive Security Certified Expert)**
 - **OSEE (Offensive Security Exploitation Expert)**
 - **GXPN (GIAC Exploit Researcher and Advanced Penetration Tester)**
 
-## 6. Penetration Testing Reporting
+## 6. Sızma Testi Raporlaması
 
-### Report Content
-- Tests Performed
-- Vulnerabilities Found
-- Risk Levels
-- Evidence (Screenshots, Logs)
-- Improvement Recommendations
+### Rapor İçeriği
+- Yapılan testler
+- Tespit edilen zafiyetler
+- Risk seviyeleri
+- Kanıtlar (ekran görüntüleri, loglar)
+- İyileştirme önerileri
 
-### Important Points
-- Use clear and understandable language
-- Explanation of technical details
-- Priority ranking
-- Executive summary
+### Önemli Noktalar
+- Açık ve anlaşılır bir dil kullanın
+- Teknik detayları açıklayın
+- Öncelik sıralaması yapın
+- Yönetici özeti ekleyin
 
-## 7. Penetration Testing Challenges
+## 7. Sızma Testi Zorlukları
 
-### Technical Challenges
-- Newly emerging vulnerabilities
-- Zero-day vulnerabilities
-- Complex network structures
+### Teknik Zorluklar
+- Yeni ortaya çıkan zafiyetler
+- Sıfır gün açıkları
+- Karmaşık ağ yapıları
 
-### Administrative Challenges
-- Management of test duration
-- Team coordination
-- Management of customer expectations
+### İdari Zorluklar
+- Test süresinin yönetimi
+- Ekip koordinasyonu
+- Müşteri beklentilerinin yönetimi
 
-## 8. Penetration Testing and Red Team Exercises
+## 8. Sızma Testi ve Red Team Tatbikatları
 
-### Differences
-- **Penetration Testing**: Testing of specific systems
-- **Red Team**: Real-world attack simulation
+### Farklar
+- **Sızma Testi**: Belirli sistemlerin test edilmesi
+- **Red Team**: Gerçek saldırı senaryosu simülasyonu
 
-### Blue and Purple Teams
-- **Blue Team**: Defense team
-- **Purple Team**: Bridge between red and blue team
+### Mavi ve Mor Takımlar
+- **Mavi Takım**: Savunma ekibi
+- **Mor Takım**: Kırmızı ve mavi takım arasında köprü görevi
 
-## 9. Penetration Testing Training Resources
+## 9. Sızma Testi Eğitim Kaynakları
 
-### Online Platforms
+### Çevrim İçi Platformlar
 - Hack The Box
 - TryHackMe
 - VulnHub
 - PentesterLab
 
-### Laboratory Environments
+### Laboratuvar Ortamları
 - Kali Linux
 - Parrot Security OS
 - BlackArch Linux
 
-## 10. Penetration Testing Career Paths
+## 10. Sızma Testi Kariyer Yolları
 
-### Career Options
-- Penetration Testing Specialist
-- Red Team Member
-- Security Consultant
-- Security Researcher
+### Kariyer Seçenekleri
+- Sızma Testi Uzmanı
+- Red Team Üyesi
+- Güvenlik Danışmanı
+- Güvenlik Araştırmacısı
 
-### Development Areas
-- Web Application Security
-- Mobile Application Security
-- IoT Security
-- Cloud Security
+### Gelişim Alanları
+- Web uygulama güvenliği
+- Mobil uygulama güvenliği
+- IoT güvenliği
+- Bulut güvenliği
 
-## Conclusion
+## Sonuç
 
-Penetration testing is one of the most dynamic and exciting areas of the cybersecurity world. In an ever-evolving threat environment, effective penetration tests are of critical importance to strengthen organizations' security posture.
+Sızma testi, siber güvenlik dünyasının en dinamik ve heyecan verici alanlarından biridir. Sürekli değişen tehdit ortamında, etkili sızma testleri kurumların güvenlik duruşunu güçlendirmek için kritik öneme sahiptir.
 
-To succeed in this field, continuous learning, practice, and staying current are essential. Remember, ethical hacking is a mindset and requires responsibility.
+Bu alanda başarı için sürekli öğrenme, pratik yapma ve güncel kalma şarttır. Unutmayın, etik hacker olmak bir bakış açısıdır ve sorumluluk gerektirir.
 
-In our next article, we will cover "Cloud Security and Data Protection".
+Bir sonraki yazımızda "Bulut Güvenliği ve Veri Koruma" konusunu ele alacağız.
