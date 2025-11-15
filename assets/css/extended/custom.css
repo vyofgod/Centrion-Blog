@@ -248,7 +248,19 @@ body:has(.profile) {
 .post-entry .entry-footer {
     display: flex !important;
     align-items: center !important;
-    gap: 1rem !important;
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+    column-gap: 0.85rem !important;
+    row-gap: 0.4rem !important;
+}
+
+.post-entry .entry-footer > span {
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+}
+
+.post-entry .entry-footer {
     font-size: 0.875rem !important;
     color: var(--secondary) !important;
     opacity: 0.7 !important;
@@ -750,26 +762,55 @@ body:has(.profile) {
     }
     
     /* Header adjustments */
+    .nav {
+        flex-direction: column;
+        align-items: stretch;
+        line-height: 1.4;
+    }
+
+    .logo {
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+    }
+
     .logo a {
         font-size: 1.2rem !important;
     }
     
     #menu {
-        gap: 1rem !important;
+        width: 100%;
+        gap: 0.75rem !important;
+        row-gap: 0.35rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0;
     }
     
+    #menu li {
+        display: flex;
+        justify-content: center;
+    }
+
     #menu li a {
         font-size: 0.9rem !important;
-        padding: 0.4rem 0;
+        padding: 0.35rem 0.5rem;
     }
     
     #search-button {
-        padding: 0.4rem 0;
-        font-size: 0.9rem;
+        padding: 0.35rem;
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
     }
-    
+
     #theme-toggle {
-        padding: 0.4rem;
+        padding: 0.35rem;
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
         margin-left: 0.35rem;
     }
     
@@ -832,6 +873,34 @@ body:has(.profile) {
 
 #search-button {
     gap: 0;
+}
+
+#menu #theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: transparent;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+#menu #theme-toggle:hover,
+#search-button:hover {
+    border-color: var(--border);
+    background: var(--code-bg);
+}
+
+@media (min-width: 769px) {
+    #search-button {
+        gap: 0.5rem;
+        padding-inline: 0.75rem;
+    }
+
+    #search-button span {
+        display: inline;
+        font-weight: 500;
+    }
 }
 
 /* Search Modal Styles */
