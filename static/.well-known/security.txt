@@ -1,0 +1,14 @@
+Contact: https://github.com/vyofgod/Centrion-Blog/security/advisories/new
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: tr, en
+Canonical: https://centrion.blog/.well-known/security.txt
+Policy: https://github.com/vyofgod/Centrion-Blog/blob/main/SECURITY.md
+Acknowledgments: https://centrion.blog/security-hall-of-fame
+
+# Siber Güvenlik Açığı Bildirimi
+# 
+# Centrion Blog'da bir güvenlik açığı bulduysanız, lütfen sorumlu bir
+# şekilde bildirin. Bulduğunuz açıkları yukarıdaki Contact linkinden
+# GitHub Security Advisory olarak bildirebilirsiniz.
+#
+# Teşekkürler!
