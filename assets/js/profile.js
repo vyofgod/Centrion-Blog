@@ -69,8 +69,28 @@ class ProfileManager {
 
     showPublicView() {
         document.getElementById('profile-loading').style.display = 'none';
-        document.getElementById('profile-settings').style.display = 'none';
-        document.getElementById('auth-required').style.display = 'none';
+        
+        // IMPORTANT: Hide ALL private settings sections
+        const privateElements = [
+            'profile-settings',
+            'auth-required',
+            'account-settings-section',
+            'profile-form',
+            'delete-account-section'
+        ];
+        
+        privateElements.forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.style.display = 'none';
+            }
+        });
+        
+        // Hide all form sections and private data
+        const allSections = document.querySelectorAll('.profile-section, .account-section, .danger-zone');
+        allSections.forEach(section => {
+            section.style.display = 'none';
+        });
         
         // Show public profile view
         let publicView = document.getElementById('public-profile-view');
@@ -124,7 +144,13 @@ class ProfileManager {
                     </div>
                 </div>
                 <div class="public-profile-actions">
-                    <a href="/tr/profile/" class="btn-secondary">Kendi Profilime Git</a>
+                    <a href="/tr/" class="btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        Ana Sayfaya Dön
+                    </a>
                 </div>
             </div>
         `;
@@ -201,7 +227,11 @@ class ProfileManager {
 
     hideLoading() {
         document.getElementById('profile-loading').style.display = 'none';
-        document.getElementById('profile-settings').style.display = 'block';
+        
+        // Only show profile settings if NOT in public view mode
+        if (this.viewMode !== 'public') {
+            document.getElementById('profile-settings').style.display = 'block';
+        }
     }
 
     showAuthRequired() {
