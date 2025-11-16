@@ -5,25 +5,192 @@ class ProfileManager {
         this.currentUser = null;
         this.currentProfile = null;
         this.avatarFile = null;
+        this.viewMode = this.getViewMode();
+        this.viewUsername = this.getViewUsername();
         this.init();
+    }
+
+    getViewMode() {
+        // Check if there's a 'user' query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.has('user') ? 'public' : 'edit';
+    }
+
+    getViewUsername() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('user');
     }
 
     async init() {
         // Show loading
         this.showLoading();
 
-        // Check auth state
-        const { data: { session } } = await this.supabase.auth.getSession();
-        
-        if (!session) {
-            this.showAuthRequired();
-            return;
-        }
+        if (this.viewMode === 'public') {
+            // Public view mode - show any user's profile
+            await this.loadPublicProfile();
+        } else {
+            // Edit mode - check auth and load own profile
+            const { data: { session } } = await this.supabase.auth.getSession();
+            
+            if (!session) {
+                this.showAuthRequired();
+                return;
+            }
 
-        this.currentUser = session.user;
-        await this.loadProfile();
-        this.setupEventListeners();
+            this.currentUser = session.user;
+            await this.loadProfile();
+            this.setupEventListeners();
+        }
+        
         this.hideLoading();
+    }
+
+    async loadPublicProfile() {
+        try {
+            // Get profile by username
+            const { data, error } = await this.supabase
+                .from('profiles')
+                .select('*')
+                .eq('username', this.viewUsername)
+                .single();
+
+            if (error || !data) {
+                this.showProfileNotFound();
+                return;
+            }
+
+            this.currentProfile = data;
+            this.showPublicView();
+        } catch (error) {
+            console.error('Error loading public profile:', error);
+            this.showProfileNotFound();
+        }
+    }
+
+    showPublicView() {
+        document.getElementById('profile-loading').style.display = 'none';
+        document.getElementById('profile-settings').style.display = 'none';
+        document.getElementById('auth-required').style.display = 'none';
+        
+        // Show public profile view
+        let publicView = document.getElementById('public-profile-view');
+        if (!publicView) {
+            publicView = this.createPublicViewHTML();
+            document.querySelector('.profile-container').appendChild(publicView);
+        }
+        publicView.style.display = 'block';
+        this.populatePublicView();
+    }
+
+    createPublicViewHTML() {
+        const div = document.createElement('div');
+        div.id = 'public-profile-view';
+        div.className = 'public-profile-view';
+        div.innerHTML = `
+            <div class="public-profile-card">
+                <div class="public-profile-header">
+                    <img id="public-avatar" src="/logo.png" alt="Avatar" class="public-avatar">
+                    <div class="public-profile-info">
+                        <h1 id="public-fullname">Kullanıcı</h1>
+                        <p id="public-username" class="public-username">@username</p>
+                    </div>
+                </div>
+                <div class="public-profile-bio">
+                    <p id="public-bio">Henüz biyografi eklenmedi</p>
+                </div>
+                <div class="public-profile-meta">
+                    <div id="public-location-section" class="meta-item" style="display: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span id="public-location"></span>
+                    </div>
+                    <div id="public-website-section" class="meta-item" style="display: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
+                        <a id="public-website" href="#" target="_blank" rel="noopener noreferrer"></a>
+                    </div>
+                    <div class="meta-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span id="public-joined">Katılma tarihi</span>
+                    </div>
+                </div>
+                <div class="public-profile-actions">
+                    <a href="/tr/profile/" class="btn-secondary">Kendi Profilime Git</a>
+                </div>
+            </div>
+        `;
+        return div;
+    }
+
+    populatePublicView() {
+        const profile = this.currentProfile;
+        
+        document.getElementById('public-fullname').textContent = profile.full_name || 'Kullanıcı';
+        document.getElementById('public-username').textContent = `@${profile.username}`;
+        document.getElementById('public-bio').textContent = profile.bio || 'Henüz biyografi eklenmedi';
+        
+        if (profile.avatar_url) {
+            document.getElementById('public-avatar').src = profile.avatar_url;
+        }
+        
+        if (profile.location) {
+            document.getElementById('public-location').textContent = profile.location;
+            document.getElementById('public-location-section').style.display = 'flex';
+        }
+        
+        if (profile.website) {
+            const websiteLink = document.getElementById('public-website');
+            try {
+                const domain = new URL(profile.website).hostname.replace('www.', '');
+                websiteLink.textContent = domain;
+                websiteLink.href = profile.website;
+            } catch {
+                websiteLink.textContent = profile.website;
+                websiteLink.href = `https://${profile.website}`;
+            }
+            document.getElementById('public-website-section').style.display = 'flex';
+        }
+        
+        if (profile.created_at) {
+            const joinDate = new Date(profile.created_at);
+            const options = { year: 'numeric', month: 'long' };
+            document.getElementById('public-joined').textContent = 
+                `${joinDate.toLocaleDateString('tr-TR', options)} tarihinde katıldı`;
+        }
+        
+        // Update page title
+        document.title = `${profile.full_name || profile.username} (@${profile.username}) - Centrion`;
+    }
+
+    showProfileNotFound() {
+        document.getElementById('profile-loading').style.display = 'none';
+        document.getElementById('profile-settings').style.display = 'none';
+        document.getElementById('auth-required').style.display = 'none';
+        
+        let notFound = document.getElementById('profile-not-found');
+        if (!notFound) {
+            notFound = document.createElement('div');
+            notFound.id = 'profile-not-found';
+            notFound.className = 'error-container';
+            notFound.innerHTML = `
+                <div class="error-content">
+                    <h2>Kullanıcı Bulunamadı</h2>
+                    <p>Aradığınız kullanıcı profili mevcut değil.</p>
+                    <a href="/tr/" class="btn-primary">Ana Sayfaya Dön</a>
+                </div>
+            `;
+            document.querySelector('.profile-container').appendChild(notFound);
+        }
+        notFound.style.display = 'flex';
     }
 
     showLoading() {
@@ -432,7 +599,8 @@ class ProfileManager {
 
     openShareModal() {
         const modal = document.getElementById('share-profile-modal');
-        const profileUrl = `https://centrion.blog/tr/profile/`;
+        const username = this.currentProfile.username || 'user';
+        const profileUrl = `https://centrion.blog/tr/profile/?user=${username}`;
         
         // Set profile link
         document.getElementById('share-profile-link').value = profileUrl;
@@ -535,7 +703,8 @@ class ProfileManager {
     }
 
     shareToSocial(platform) {
-        const profileUrl = `https://centrion.blog/tr/profile/`;
+        const username = this.currentProfile.username || 'user';
+        const profileUrl = `https://centrion.blog/tr/profile/?user=${username}`;
         const fullName = this.currentProfile.full_name || 'Kullanıcı';
         const text = `${fullName} adlı kullanıcının Centrion profilini incele!`;
         
