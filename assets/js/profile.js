@@ -432,8 +432,7 @@ class ProfileManager {
 
     openShareModal() {
         const modal = document.getElementById('share-profile-modal');
-        const username = this.currentProfile.username || 'user';
-        const profileUrl = `https://centrion.blog/tr/profile/${username}`;
+        const profileUrl = `https://centrion.blog/tr/profile/`;
         
         // Set profile link
         document.getElementById('share-profile-link').value = profileUrl;
@@ -536,8 +535,7 @@ class ProfileManager {
     }
 
     shareToSocial(platform) {
-        const username = this.currentProfile.username || 'user';
-        const profileUrl = `https://centrion.blog/tr/profile/${username}`;
+        const profileUrl = `https://centrion.blog/tr/profile/`;
         const fullName = this.currentProfile.full_name || 'Kullanıcı';
         const text = `${fullName} adlı kullanıcının Centrion profilini incele!`;
         

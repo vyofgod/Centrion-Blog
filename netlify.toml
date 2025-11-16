@@ -71,14 +71,6 @@
   status = 301
   force = true
 
-# Dynamic profile pages - redirect to main profile page for client-side routing
-[[redirects]]
-  from = "/tr/profile/*"
-  to = "/tr/profile/"
-  status = 200
-  force = false
-  conditions = {path = ["!/tr/profile/index.html", "!/tr/profile/"]}
-
 # Custom 404 page
 [[redirects]]
   from = "/*"

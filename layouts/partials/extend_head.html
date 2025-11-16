@@ -79,15 +79,6 @@
 <script defer crossorigin="anonymous" src="{{ $auth.RelPermalink }}"></script>
 {{- end }}
 
-{{- /* Load Profile Router for dynamic profile pages */ -}}
-{{- $router := resources.Get "js/router.js" | resources.Minify }}
-{{- if not site.Params.assets.disableFingerprinting }}
-{{- $router = $router | fingerprint }}
-<script defer crossorigin="anonymous" src="{{ $router.RelPermalink }}" integrity="{{ $router.Data.Integrity }}"></script>
-{{- else }}
-<script defer crossorigin="anonymous" src="{{ $router.RelPermalink }}"></script>
-{{- end }}
-
 {{- /* Load Profile management script on profile page */ -}}
 {{- if eq .Layout "profile" }}
 {{- $profile := resources.Get "js/profile.js" | resources.Minify }}
