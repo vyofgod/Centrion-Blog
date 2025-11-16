@@ -58,3 +58,34 @@
 {{- else }}
 <script defer crossorigin="anonymous" src="{{ $tocControl.RelPermalink }}"></script>
 {{- end }}
+
+{{- /* Load Supabase for authentication */ -}}
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+{{- /* Load Supabase configuration and auth scripts */ -}}
+{{- $supabaseConfig := resources.Get "js/supabase-config.js" | resources.Minify }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $supabaseConfig = $supabaseConfig | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $supabaseConfig.RelPermalink }}" integrity="{{ $supabaseConfig.Data.Integrity }}"></script>
+{{- else }}
+<script defer crossorigin="anonymous" src="{{ $supabaseConfig.RelPermalink }}"></script>
+{{- end }}
+
+{{- $auth := resources.Get "js/auth.js" | resources.Minify }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $auth = $auth | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $auth.RelPermalink }}" integrity="{{ $auth.Data.Integrity }}"></script>
+{{- else }}
+<script defer crossorigin="anonymous" src="{{ $auth.RelPermalink }}"></script>
+{{- end }}
+
+{{- /* Load Profile management script on profile page */ -}}
+{{- if eq .Layout "profile" }}
+{{- $profile := resources.Get "js/profile.js" | resources.Minify }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $profile = $profile | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $profile.RelPermalink }}" integrity="{{ $profile.Data.Integrity }}"></script>
+{{- else }}
+<script defer crossorigin="anonymous" src="{{ $profile.RelPermalink }}"></script>
+{{- end }}
+{{- end }}
