@@ -178,7 +178,10 @@ class AuthManager {
         try {
             const { data, error } = await this.supabase.auth.signUp({
                 email,
-                password
+                password,
+                options: {
+                    emailRedirectTo: 'https://centrion.blog/tr/profile/'
+                }
             });
 
             if (error) {
