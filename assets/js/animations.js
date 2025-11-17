@@ -87,10 +87,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Animate page transitions
-    window.addEventListener('beforeunload', function() {
-        document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.3s ease-out';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const transitionMs = 220;
+    const overlay = document.createElement('div');
+    overlay.className = 'page-transition active';
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => {
+        overlay.classList.remove('active');
+    });
+
+    document.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if (!a) return;
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#')) return;
+        if (a.hasAttribute('download')) return;
+        if (a.target && a.target !== '' && a.target !== '_self') return;
+        try {
+            const url = new URL(a.href, window.location.href);
+            if (url.origin !== window.location.origin) return;
+        } catch { return; }
+        e.preventDefault();
+        if (!reduceMotion) {
+            overlay.classList.add('active');
+            setTimeout(() => { window.location.href = a.href; }, transitionMs);
+        } else {
+            window.location.href = a.href;
+        }
+    });
+
+    window.addEventListener('pageshow', () => {
+        overlay.classList.remove('active');
     });
 
     // Add loading animation for images
