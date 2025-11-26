@@ -2,7 +2,7 @@ baseURL: "https://centrion.blog/"
 title: "Centrion"
 theme: "PaperMod"
 defaultContentLanguage: "tr"
-defaultContentLanguageInSubdir: true
+defaultContentLanguageInSubdir: false
 
 taxonomies:
   category: Categories
@@ -108,11 +108,11 @@ params:
     imageTitle: "Profil Fotoğrafı"
     buttons:
       - name: Yazılar
-        url: /tr/posts/
+        url: /posts/
       - name: Kategoriler
-        url: /tr/categories/
+        url: /categories/
       - name: Etiketler
-        url: /tr/tags/
+        url: /tags/
 
   # home-info mode
   homeInfoParams:
@@ -197,19 +197,19 @@ languages:
       main:
         - identifier: posts
           name: "Yazılar"
-          url: "/tr/posts/"
+          url: "/posts/"
           weight: 5
         - identifier: categories
           name: "Kategoriler"
-          url: "/tr/categories/"
+          url: "/categories/"
           weight: 10
         - identifier: tags
           name: "Etiketler"
-          url: "/tr/tags/"
+          url: "/tags/"
           weight: 20
         - identifier: search
           name: "Ara"
-          url: "/tr/search/"
+          url: "/search/"
           weight: 30
 
 outputs:
