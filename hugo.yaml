@@ -5,8 +5,8 @@ defaultContentLanguage: "tr"
 defaultContentLanguageInSubdir: false
 
 taxonomies:
-  category: Categories
-  tag: Tags
+  category: categories
+  tag: tags
 
 pagination:
   pagerSize: 5
