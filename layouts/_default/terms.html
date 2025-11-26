@@ -22,43 +22,41 @@
 <div class="categories-container">
     {{- $type := .Type }}
     {{- range $key, $value := .Data.Terms.Alphabetical }}
-    {{- $name := .Name }}
+    {{- $termPage := .Page }}
+    {{- if not $termPage }}
+        {{- continue }}
+    {{- end }}
+    {{- $name := $termPage.Title }}
+    {{- $permalink := $termPage.Permalink }}
     {{- $count := .Count }}
-    {{- with site.GetPage (printf "/%s/%s" $type $name) }}
+    {{- $slug := urlize $name }}
+    {{- $descriptions := dict 
+        "ag-guvenligi" "Ağ altyapısı, VPN kullanımı ve güvenli bağlantı oluşturma üzerine derinlemesine rehberler."
+        "bulut-guvenligi" "Bulut platformlarında veri koruma, erişim yönetimi ve mevzuat uyumluluğu ipuçları."
+        "temel-guvenlik" "Siber güvenliğe yeni başlayanlar için temel kavramlar ve günlük pratik öneriler."
+        "veri-koruma" "Şifreleme, KVKK uyumluluğu ve kişisel verilerin korunmasına yönelik stratejiler."
+        "zararli-yazilim" "Kötü amaçlı yazılımları tanıma, tespit etme ve etkisiz hale getirme yöntemleri."
+    }}
     <div class="category-card">
         <div class="category-header">
             <h2 class="category-title">
-                <a href="{{ .Permalink }}">{{ .Name }}</a>
+                <a href="{{ $permalink }}">{{ $name }}</a>
             </h2>
-            <span class="category-count">{{ $count }} {{ if eq $count 1 }}post{{ else }}posts{{ end }}</span>
+            <span class="category-count">{{ $count }} {{ if eq $count 1 }}yazı{{ else }}yazı{{ end }}</span>
         </div>
         <div class="category-content">
-            {{- $description := "" }}
-            {{- if eq $name "Network Security" }}
-                {{- $description = "Content about network infrastructure, VPN usage, secure connections, and network protection methods." }}
-            {{- else if eq $name "Cloud Security" }}
-                {{- $description = "Cloud computing security, data protection strategies, and secure use of cloud-based solutions." }}
-            {{- else if eq $name "Basic Security" }}
-                {{- $description = "Cybersecurity fundamentals, beginner-level security measures, and daily digital security practices." }}
-            {{- else if eq $name "Data Protection" }}
-                {{- $description = "Data security, encryption techniques, personal data protection, and privacy topics." }}
-            {{- else if eq $name "Malware" }}
-                {{- $description = "Types of malware, defense methods against malicious software, and security software." }}
-            {{- else }}
-                {{- $description = printf "This category contains %d %s." $count (cond (eq $count 1) "post" "posts") }}
-            {{- end }}
+            {{- $description := cond (isset $descriptions $slug) (index $descriptions $slug) (printf "%d %s içeren seçili içerik." $count (cond (eq $count 1) "yazı" "yazı")) }}
             <p class="category-description">{{ $description }}</p>
         </div>
         <div class="category-footer">
-            <a href="{{ .Permalink }}" class="category-link">
-                View Posts
+            <a href="{{ $permalink }}" class="category-link">
+                Yazıları Gör
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </a>
         </div>
     </div>
-    {{- end }}
     {{- end }}
 </div>
 

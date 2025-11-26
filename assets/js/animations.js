@@ -1,4 +1,5 @@
-// Scroll reveal animation handler
+// Scroll reveal animation handler with enhanced page transitions
+// ============================================
 document.addEventListener('DOMContentLoaded', function() {
     // Add scroll-reveal class to post entries
     const postEntries = document.querySelectorAll('.post-entry');
@@ -16,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
-                // Optional: stop observing after reveal
                 observer.unobserve(entry.target);
             }
         });
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const revealElements = document.querySelectorAll('.scroll-reveal');
     revealElements.forEach(el => observer.observe(el));
 
-    // Add smooth scroll behavior for anchor links
+    // Smooth scroll for in-page anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -34,39 +34,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }
         });
     });
 
-    // Add parallax effect to header on scroll
+    // Header hide/show on scroll
     let lastScrollTop = 0;
     const header = document.querySelector('.header');
-    
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
         if (header) {
             if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scrolling down
                 header.style.transform = 'translateY(-100%)';
-                header.style.transition = 'transform 0.3s ease-in-out';
             } else {
-                // Scrolling up
                 header.style.transform = 'translateY(0)';
             }
+            header.style.transition = 'transform 0.3s ease-in-out';
         }
-        
         lastScrollTop = scrollTop;
     }, { passive: true });
 
-    // Social icons hover effect - removed bounce animation for smoother experience
-
-    // Add ripple effect on buttons
+    // Ripple effect on buttons
     const buttons = document.querySelectorAll('button, .button, a.button');
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -75,40 +65,47 @@ document.addEventListener('DOMContentLoaded', function() {
             const size = Math.max(rect.width, rect.height);
             const x = e.clientX - rect.left - size / 2;
             const y = e.clientY - rect.top - size / 2;
-            
             ripple.style.width = ripple.style.height = size + 'px';
             ripple.style.left = x + 'px';
             ripple.style.top = y + 'px';
             ripple.classList.add('ripple');
-            
             this.appendChild(ripple);
-            
             setTimeout(() => ripple.remove(), 600);
         });
     });
 
+    // Page transition overlay
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const transitionMs = 220;
+    const transitionMs = 350; // Updated for smoother exit animation
     const overlay = document.createElement('div');
     overlay.className = 'page-transition active';
     document.body.appendChild(overlay);
+
     requestAnimationFrame(() => {
         overlay.classList.remove('active');
     });
 
+    // INTERNAL LINK CLICK → EXIT ANIMATION → NAVIGATE
     document.addEventListener('click', (e) => {
         const a = e.target.closest('a');
         if (!a) return;
+
         const href = a.getAttribute('href') || '';
         if (href.startsWith('#')) return;
         if (a.hasAttribute('download')) return;
         if (a.target && a.target !== '' && a.target !== '_self') return;
+
         try {
             const url = new URL(a.href, window.location.href);
             if (url.origin !== window.location.origin) return;
-        } catch { return; }
+        } catch {
+            return;
+        }
+
         e.preventDefault();
+
         if (!reduceMotion) {
+            document.body.classList.add('page-exit');
             overlay.classList.add('active');
             setTimeout(() => { window.location.href = a.href; }, transitionMs);
         } else {
@@ -116,11 +113,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    window.addEventListener('pageshow', () => {
+    // Handle back/forward navigation
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            document.body.classList.remove('page-exit');
+            document.body.classList.add('page-loaded');
+        }
         overlay.classList.remove('active');
     });
 
-    // Add loading animation for images
+    // Image loading fade-in
     const images = document.querySelectorAll('img');
     images.forEach(img => {
         if (!img.complete) {
@@ -132,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Stagger animation for menu items
+    // Stagger menu items
     const menuItems = document.querySelectorAll('#menu li');
     menuItems.forEach((item, index) => {
         item.style.opacity = '0';
@@ -144,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100 * index);
     });
 
-    // Add scroll progress indicator
+    // Scroll progress indicator
     const progressBar = document.createElement('div');
     progressBar.className = 'scroll-progress';
     progressBar.style.cssText = `
@@ -166,7 +168,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { passive: true });
 });
 
-// Add CSS for ripple effect
+// Trigger enter animation
+document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("page-loaded");
+});
+
+// Ripple effect styling
 const style = document.createElement('style');
 style.textContent = `
     .ripple {
@@ -177,14 +184,12 @@ style.textContent = `
         animation: ripple-animation 0.6s ease-out;
         pointer-events: none;
     }
-    
     @keyframes ripple-animation {
         to {
             transform: scale(4);
             opacity: 0;
         }
     }
-    
     button, .button {
         position: relative;
         overflow: hidden;
