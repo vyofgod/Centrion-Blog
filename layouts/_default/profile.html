@@ -1,0 +1,372 @@
+{{- define "main" }}
+
+<div class="profile-container">
+    <!-- Auth Check Message -->
+    <div id="auth-required" class="auth-required" style="display: none;">
+        <div class="auth-required-content">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <h2>Giriş Yapmanız Gerekiyor</h2>
+            <p>Profil ayarlarınızı görüntülemek ve düzenlemek için lütfen giriş yapın.</p>
+            <button id="login-redirect-btn" class="primary-button">Giriş Yap</button>
+        </div>
+    </div>
+
+    <!-- Profile Settings (shown when logged in) -->
+    <div id="profile-settings" class="profile-settings" style="display: none;">
+        <div class="profile-header">
+            <h1>Profil Ayarları</h1>
+            <p>Profil bilgilerinizi düzenleyin ve hesabınızı yönetin</p>
+        </div>
+
+        <div class="profile-layout">
+            <div class="profile-layout-left">
+                <!-- Profile Preview Card -->
+                <div class="profile-preview-card">
+                    <div class="profile-preview-header">
+                        <h3>Profil Önizlemesi</h3>
+                        <button id="share-profile-btn" class="share-profile-btn" title="Profili Paylaş">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="18" cy="5" r="3"></circle>
+                                <circle cx="6" cy="12" r="3"></circle>
+                                <circle cx="18" cy="19" r="3"></circle>
+                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                            </svg>
+                            Profili Paylaş
+                        </button>
+                    </div>
+                    <div class="profile-preview-content">
+                        <div class="profile-preview-avatar">
+                            <img id="preview-avatar" src="/logo.png" alt="Profile Picture">
+                            <div class="profile-preview-badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="profile-preview-info">
+                            <h2 id="preview-fullname">Kullanıcı Adı</h2>
+                            <p id="preview-username">@username</p>
+                            <p id="preview-bio" class="profile-preview-bio">Henüz biyografi eklenmedi</p>
+                            <div class="profile-preview-meta">
+                                <span id="preview-location" class="preview-meta-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    <span class="preview-meta-text">Konum belirtilmedi</span>
+                                </span>
+                                <span id="preview-website" class="preview-meta-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                                    </svg>
+                                    <span class="preview-meta-text">Website yok</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Settings Section (left column on desktop) -->
+                <div class="account-settings-section">
+                    <div class="profile-section-header">
+                        <h2>Hesap Ayarları</h2>
+                        <p>Hesap güvenliği ve tercihleriniz</p>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>E-posta Adresi</h3>
+                                <p id="user-email" class="setting-value">email@example.com</p>
+                            </div>
+                            <button class="secondary-button" disabled>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                Doğrulandı
+                            </button>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>Üyelik Tarihi</h3>
+                                <p id="user-created-at" class="setting-value">-</p>
+                            </div>
+                        </div>
+
+                        <div class="setting-item danger-zone">
+                            <div class="setting-info">
+                                <h3>Hesabı Sil</h3>
+                                <p>Hesabınızı ve tüm verilerinizi kalıcı olarak silin</p>
+                            </div>
+                            <button class="danger-button" id="delete-account-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                </svg>
+                                Hesabı Sil
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="profile-footer-actions">
+                        <button class="secondary-button logout-button" id="profile-logout-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                <polyline points="16,17 21,12 16,7"></polyline>
+                                <line x1="21" y1="12" x2="9" y2="12"></line>
+                            </svg>
+                            Çıkış Yap
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-layout-right">
+                <!-- Profile Edit Form -->
+                <div class="profile-edit-section">
+            <div class="profile-section-header">
+                <h2>Profil Bilgileri</h2>
+                <p>Instagram tarzı profil bilgilerinizi düzenleyin</p>
+            </div>
+
+            <form id="profile-form" class="profile-form">
+                <!-- Avatar Upload -->
+                <div class="form-section">
+                    <label class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        Profil Resmi
+                    </label>
+                    <div class="avatar-upload-container">
+                        <div class="avatar-preview">
+                            <img id="avatar-preview" src="/logo.png" alt="Avatar">
+                        </div>
+                        <div class="avatar-upload-controls">
+                            <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+                            <button type="button" id="upload-avatar-btn" class="secondary-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                Resim Yükle
+                            </button>
+                            <button type="button" id="remove-avatar-btn" class="danger-button" style="display: none;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                </svg>
+                                Kaldır
+                            </button>
+                        </div>
+                    </div>
+                    <p class="form-hint">JPG, PNG veya GIF. Maksimum 2MB.</p>
+                </div>
+
+                <!-- Full Name -->
+                <div class="form-section">
+                    <label for="full-name" class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        İsim Soyisim
+                    </label>
+                    <input type="text" id="full-name" class="form-input" placeholder="Adınız ve Soyadınız">
+                </div>
+
+                <!-- Username -->
+                <div class="form-section">
+                    <label for="username" class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <polyline points="17 11 19 13 23 9"></polyline>
+                        </svg>
+                        Kullanıcı Adı
+                    </label>
+                    <div class="input-with-prefix">
+                        <span class="input-prefix">@</span>
+                        <input type="text" id="username" class="form-input with-prefix" placeholder="kullaniciadi">
+                    </div>
+                </div>
+
+                <!-- Bio -->
+                <div class="form-section">
+                    <label for="bio" class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        Biyografi
+                    </label>
+                    <textarea id="bio" class="form-textarea" rows="4" maxlength="150" placeholder="Kendinizden bahsedin..."></textarea>
+                    <p class="form-hint"><span id="bio-counter">0</span>/150 karakter</p>
+                </div>
+
+                <!-- Website -->
+                <div class="form-section">
+                    <label for="website" class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        Website
+                    </label>
+                    <input type="url" id="website" class="form-input" placeholder="https://website.com">
+                </div>
+
+                <!-- Location -->
+                <div class="form-section">
+                    <label for="location" class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        Konum
+                    </label>
+                    <input type="text" id="location" class="form-input" placeholder="İstanbul, Türkiye">
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="submit" class="primary-button" id="save-profile-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                            <polyline points="7 3 7 8 15 8"></polyline>
+                        </svg>
+                        Değişiklikleri Kaydet
+                    </button>
+                    <button type="button" class="secondary-button" id="cancel-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        İptal
+                    </button>
+                </div>
+            </form>
+        </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="profile-loading" class="profile-loading">
+        <div class="loading-spinner"></div>
+        <p>Profil bilgileri yükleniyor...</p>
+    </div>
+</div>
+
+<!-- Notification Toast -->
+<div id="notification-toast" class="notification-toast">
+    <div class="toast-content">
+        <svg class="toast-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span class="toast-message">İşlem başarılı!</span>
+    </div>
+</div>
+
+<!-- Share Profile Modal -->
+<div id="share-profile-modal" class="share-modal" style="display: none;">
+    <div class="share-modal-overlay"></div>
+    <div class="share-modal-content">
+        <div class="share-modal-header">
+            <h2>Profili Paylaş</h2>
+            <button id="share-modal-close" class="modal-close-btn" aria-label="Kapat">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="share-modal-body">
+            <!-- QR Code Section -->
+            <div class="share-qr-section">
+                <div class="share-qr-container">
+                    <canvas id="share-qr-canvas"></canvas>
+                </div>
+                <p class="share-qr-hint">QR kodu tarayarak profilimi görüntüle</p>
+            </div>
+
+            <!-- Profile Link Section -->
+            <div class="share-link-section">
+                <label class="share-label">Profil Linki</label>
+                <div class="share-link-container">
+                    <input type="text" id="share-profile-link" class="share-link-input" readonly>
+                    <button id="copy-link-btn" class="copy-link-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Kopyala
+                    </button>
+                </div>
+            </div>
+
+            <!-- Social Share Section -->
+            <div class="share-social-section">
+                <label class="share-label">Sosyal Medyada Paylaş</label>
+                <div class="share-social-buttons">
+                    <button class="share-social-btn whatsapp" id="share-whatsapp">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        <span>WhatsApp</span>
+                    </button>
+                    <button class="share-social-btn twitter" id="share-twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        <span>Twitter</span>
+                    </button>
+                    <button class="share-social-btn telegram" id="share-telegram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                        </svg>
+                        <span>Telegram</span>
+                    </button>
+                    <button class="share-social-btn facebook" id="share-facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 3.667h-3.533v7.98H9.101z"/>
+                        </svg>
+                        <span>Facebook</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Download QR Button -->
+            <div class="share-actions">
+                <button id="download-qr-btn" class="download-qr-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    QR Kodu İndir
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- QR Code Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+{{- end }}
