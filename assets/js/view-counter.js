@@ -17,33 +17,23 @@ import { getDatabase, ref, runTransaction, get } from 'https://www.gstatic.com/f
   const database = getDatabase(app);
   const SESSION_KEY = 'centrion:viewedThisSession';
 
-  // Görüntüleme sayısını artırma sistemi
-  // URL'ye göre tutarlı bir "boost" değeri hesaplar
-  function calculateBoost(path) {
-    // URL'den tutarlı bir hash oluştur
+  // Her post için sabit bir taban değer hesapla (URL'ye göre tutarlı)
+  // Bu değer hiç değişmez, sadece gerçek okumalar +1 ekler
+  function getBaseCount(path) {
     let hash = 0;
     for (let i = 0; i < path.length; i++) {
       const char = path.charCodeAt(i);
       hash = ((hash << 5) - hash) + char;
       hash = hash & hash;
     }
-    // Pozitif değere çevir
-    hash = Math.abs(hash);
-
-    // Taban değer: 50-120 arası (her post için farklı)
-    const baseBoost = 50 + (hash % 70);
-
-    // Çarpan: 1.2 - 1.8 arası
-    const multiplier = 1.2 + ((hash % 60) / 100);
-
-    return { baseBoost, multiplier };
+    // 50-150 arası sabit taban değer
+    return 50 + (Math.abs(hash) % 100);
   }
 
-  // Gerçek sayıyı artırılmış sayıya çevir
-  function boostCount(realCount, path) {
-    const { baseBoost, multiplier } = calculateBoost(path);
-    // Formül: (gerçek sayı * çarpan) + taban değer
-    return Math.floor((realCount * multiplier) + baseBoost);
+  // Gösterilecek sayı = taban + gerçek okunma
+  function getDisplayCount(realCount, path) {
+    const base = getBaseCount(path);
+    return base + realCount;
   }
 
   function loadSessionViewed() {
@@ -113,53 +103,109 @@ import { getDatabase, ref, runTransaction, get } from 'https://www.gstatic.com/f
     }
   }
 
-  function renderSingle(count) {
-    const meta = document.querySelector('.post-single .post-header .post-meta') ||
-      document.querySelector('.post-single .post-meta') ||
-      document.querySelector('.post-meta');
-    if (!meta) return;
-    let node = meta.querySelector('.post-views');
+  // Okunma sayısını göstermek için meta alanını bul veya oluştur
+  function findOrCreateViewsNode(container) {
+    let node = container.querySelector('.post-views');
     if (!node) {
       node = document.createElement('span');
       node.className = 'post-views';
-      meta.appendChild(node);
+      container.appendChild(node);
     }
-    // Artırılmış okunma sayısını göster
-    const path = normalizePath(window.location.href);
-    const boostedCount = boostCount(count, path);
-    node.textContent = 'Okunma: ' + boostedCount.toLocaleString('tr-TR');
+    return node;
   }
 
+  // Tekil yazı sayfasında okunma sayısını göster
+  function renderSingle(realCount) {
+    const metaSelectors = [
+      '.post-single .post-header .post-meta',
+      '.post-single .post-meta',
+      '.post-header .post-meta',
+      '.post-meta'
+    ];
+
+    let meta = null;
+    for (const selector of metaSelectors) {
+      meta = document.querySelector(selector);
+      if (meta) break;
+    }
+
+    if (!meta) {
+      console.warn('View counter: post-meta element not found');
+      return;
+    }
+
+    const path = normalizePath(window.location.href);
+    const displayCount = getDisplayCount(realCount, path);
+
+    const node = findOrCreateViewsNode(meta);
+    node.textContent = 'Okunma: ' + displayCount;
+  }
+
+  // Liste sayfalarında tüm yazıların okunma sayılarını göster
   async function renderList() {
     const articles = document.querySelectorAll('article.post-entry, article.first-entry, article.tag-entry');
-    for (const article of articles) {
-      const link = article.querySelector('a.entry-link');
-      const footer = article.querySelector('footer.entry-footer') || article.querySelector('.entry-footer') || article.querySelector('header.entry-header');
-      if (!link || !footer) continue;
 
-      const count = await getCountFor(link.href);
-      const path = normalizePath(link.href);
-      const boostedCount = boostCount(count, path);
-      let node = article.querySelector('.post-views');
-      if (!node) {
-        node = document.createElement('span');
-        node.className = 'post-views';
-        footer.appendChild(node);
+    if (articles.length === 0) return;
+
+    const promises = Array.from(articles).map(async (article) => {
+      const link = article.querySelector('a.entry-link');
+      const footer = article.querySelector('footer.entry-footer') ||
+        article.querySelector('.entry-footer') ||
+        article.querySelector('header.entry-header');
+
+      if (!link || !footer) return;
+
+      try {
+        const realCount = await getCountFor(link.href);
+        const path = normalizePath(link.href);
+        const displayCount = getDisplayCount(realCount, path);
+
+        const node = findOrCreateViewsNode(footer);
+        node.textContent = 'Okunma: ' + displayCount;
+      } catch (e) {
+        console.error('Failed to render count for article:', e);
       }
-      node.textContent = 'Okunma: ' + boostedCount.toLocaleString('tr-TR');
-    }
+    });
+
+    await Promise.all(promises);
   }
 
   function isSingle() {
     return document.querySelector('.post-single') !== null;
   }
 
-  document.addEventListener('DOMContentLoaded', async function () {
-    if (isSingle()) {
-      const c = await incrementForCurrent();
-      renderSingle(c);
-    } else {
-      await renderList();
+  // Sayfa yüklendiğinde çalıştır
+  async function init() {
+    try {
+      if (isSingle()) {
+        const count = await incrementForCurrent();
+        renderSingle(count);
+      } else {
+        await renderList();
+      }
+    } catch (e) {
+      console.error('View counter initialization failed:', e);
     }
+  }
+
+  // DOMContentLoaded ve load eventlerini dinle
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  // Sayfa tam yüklendiğinde tekrar dene (güvenilirlik için)
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if (isSingle()) {
+        const existingNode = document.querySelector('.post-views');
+        if (!existingNode || !existingNode.textContent) {
+          getCountFor(window.location.href).then(count => {
+            renderSingle(count);
+          });
+        }
+      }
+    }, 500);
   });
 })();
