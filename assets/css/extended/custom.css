@@ -374,6 +374,18 @@ body.page-exit {
     }
 }
 
+/* Scale up animation for category and tag cards */
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 .pagination a,
 .pagination span {
     border-radius: 10px !important;

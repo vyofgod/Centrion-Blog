@@ -17,6 +17,35 @@ import { getDatabase, ref, runTransaction, get } from 'https://www.gstatic.com/f
   const database = getDatabase(app);
   const SESSION_KEY = 'centrion:viewedThisSession';
 
+  // Görüntüleme sayısını artırma sistemi
+  // URL'ye göre tutarlı bir "boost" değeri hesaplar
+  function calculateBoost(path) {
+    // URL'den tutarlı bir hash oluştur
+    let hash = 0;
+    for (let i = 0; i < path.length; i++) {
+      const char = path.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash;
+    }
+    // Pozitif değere çevir
+    hash = Math.abs(hash);
+
+    // Taban değer: 50-120 arası (her post için farklı)
+    const baseBoost = 50 + (hash % 70);
+
+    // Çarpan: 1.2 - 1.8 arası
+    const multiplier = 1.2 + ((hash % 60) / 100);
+
+    return { baseBoost, multiplier };
+  }
+
+  // Gerçek sayıyı artırılmış sayıya çevir
+  function boostCount(realCount, path) {
+    const { baseBoost, multiplier } = calculateBoost(path);
+    // Formül: (gerçek sayı * çarpan) + taban değer
+    return Math.floor((realCount * multiplier) + baseBoost);
+  }
+
   function loadSessionViewed() {
     try {
       const raw = sessionStorage.getItem(SESSION_KEY);
@@ -54,11 +83,11 @@ import { getDatabase, ref, runTransaction, get } from 'https://www.gstatic.com/f
 
   async function incrementForCurrent() {
     const path = normalizePath(window.location.href);
-    
+
     if (isViewedThisSession(path)) {
       return await getCountFor(window.location.href);
     }
-    
+
     try {
       const viewRef = ref(database, 'views/' + path);
       const result = await runTransaction(viewRef, (current) => {
@@ -86,8 +115,8 @@ import { getDatabase, ref, runTransaction, get } from 'https://www.gstatic.com/f
 
   function renderSingle(count) {
     const meta = document.querySelector('.post-single .post-header .post-meta') ||
-                 document.querySelector('.post-single .post-meta') ||
-                 document.querySelector('.post-meta');
+      document.querySelector('.post-single .post-meta') ||
+      document.querySelector('.post-meta');
     if (!meta) return;
     let node = meta.querySelector('.post-views');
     if (!node) {
@@ -95,7 +124,10 @@ import { getDatabase, ref, runTransaction, get } from 'https://www.gstatic.com/f
       node.className = 'post-views';
       meta.appendChild(node);
     }
-    node.textContent = 'Okunma: ' + count;
+    // Artırılmış okunma sayısını göster
+    const path = normalizePath(window.location.href);
+    const boostedCount = boostCount(count, path);
+    node.textContent = 'Okunma: ' + boostedCount.toLocaleString('tr-TR');
   }
 
   async function renderList() {
@@ -106,13 +138,15 @@ import { getDatabase, ref, runTransaction, get } from 'https://www.gstatic.com/f
       if (!link || !footer) continue;
 
       const count = await getCountFor(link.href);
+      const path = normalizePath(link.href);
+      const boostedCount = boostCount(count, path);
       let node = article.querySelector('.post-views');
       if (!node) {
         node = document.createElement('span');
         node.className = 'post-views';
         footer.appendChild(node);
       }
-      node.textContent = 'Okunma: ' + count;
+      node.textContent = 'Okunma: ' + boostedCount.toLocaleString('tr-TR');
     }
   }
 

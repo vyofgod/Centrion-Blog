@@ -2,17 +2,28 @@
 
 {{- if .Title }}
 <header class="page-header">
-    <h1>{{ .Title }}</h1>
+    <h1>{{ .Title }}{{ if .Site.Params.ShowRssButtonInSectionTermList }}
+    {{- with .OutputFormats.Get "rss" }}
+    <a href="{{ .RelPermalink }}" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" height="23">
+          <path d="M4 11a9 9 0 0 1 9 9" />
+          <path d="M4 4a16 16 0 0 1 16 16" />
+          <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+    {{- end }}
+    {{- end }}</h1>
     {{- if .Description }}
     <div class="post-description">
         {{ .Description }}
     </div>
     {{- else }}
     <div class="post-description">
-        {{ if eq .Type "categories" }}
-        Explore blog posts by topic. Each category offers detailed content on related subjects.
+        {{ if eq .Section "categories" }}
+        Konuya göre blog yazılarını keşfedin. Her kategori ilgili konularda detaylı içerik sunar.
         {{ else }}
-        Browse all tags and filter posts by topics that interest you.
+        Tüm etiketlere göz atın ve ilgilendiğiniz konulara göre yazıları filtreleyin.
         {{ end }}
     </div>
     {{- end }}
@@ -20,45 +31,58 @@
 {{- end }}
 
 <div class="categories-container">
-    {{- $type := .Type }}
-    {{- range $key, $value := .Data.Terms.Alphabetical }}
-    {{- $termPage := .Page }}
-    {{- if not $termPage }}
-        {{- continue }}
-    {{- end }}
-    {{- $name := $termPage.Title }}
-    {{- $permalink := $termPage.Permalink }}
-    {{- $count := .Count }}
-    {{- $slug := urlize $name }}
-    {{- $descriptions := dict 
-        "ag-guvenligi" "Ağ altyapısı, VPN kullanımı ve güvenli bağlantı oluşturma üzerine derinlemesine rehberler."
-        "bulut-guvenligi" "Bulut platformlarında veri koruma, erişim yönetimi ve mevzuat uyumluluğu ipuçları."
-        "temel-guvenlik" "Siber güvenliğe yeni başlayanlar için temel kavramlar ve günlük pratik öneriler."
+    {{- $section := .Section }}
+    {{- $taxonomy := index site.Taxonomies $section }}
+
+    {{/* Debug info in HTML comments */}}
+    <!-- Section: {{ $section }} -->
+    <!-- Available taxonomies: {{ range $name, $tax := site.Taxonomies }}{{ $name }} {{ end }} -->
+    <!-- Taxonomy count: {{ len $taxonomy }} -->
+
+    {{- if not $taxonomy }}
+    <div class="no-content-message">
+        <p>Henüz bu bölümde içerik bulunmamaktadır.</p>
+    </div>
+    {{- else }}
+    {{- $descriptions := dict
+        "ağ-güvenliği" "Ağ altyapısı, VPN kullanımı ve güvenli bağlantı oluşturma üzerine derinlemesine rehberler."
+        "bulut-güvenliği" "Bulut platformlarında veri koruma, erişim yönetimi ve mevzuat uyumluluğu ipuçları."
+        "temel-güvenlik" "Siber güvenliğe yeni başlayanlar için temel kavramlar ve günlük pratik öneriler."
         "veri-koruma" "Şifreleme, KVKK uyumluluğu ve kişisel verilerin korunmasına yönelik stratejiler."
-        "zararli-yazilim" "Kötü amaçlı yazılımları tanıma, tespit etme ve etkisiz hale getirme yöntemleri."
+        "zararlı-yazılım" "Kötü amaçlı yazılımları tanıma, tespit etme ve etkisiz hale getirme yöntemleri."
+        "siber-güvenlik" "Siber güvenlik alanındaki temel kavramlar, tehditler ve koruma yöntemleri."
     }}
+    {{- range $taxonomy.Alphabetical }}
+    {{- $name := .Term }}
+    {{- $count := .Count }}
+    {{- $slug := $name | urlize }}
+    {{- $url := printf "/%s/%s/" $section $slug }}
     <div class="category-card">
         <div class="category-header">
             <h2 class="category-title">
-                <a href="{{ $permalink }}">{{ $name }}</a>
+                <a href="{{ $url | relURL }}">{{ $name | humanize | title }}</a>
             </h2>
-            <span class="category-count">{{ $count }} {{ if eq $count 1 }}yazı{{ else }}yazı{{ end }}</span>
+            <span class="category-count">{{ $count }} yazı</span>
         </div>
         <div class="category-content">
-            {{- $description := cond (isset $descriptions $slug) (index $descriptions $slug) (printf "%d %s içeren seçili içerik." $count (cond (eq $count 1) "yazı" "yazı")) }}
+            {{- $description := index $descriptions $slug }}
+            {{- if not $description }}
+            {{- $description = printf "%d yazı içeren seçili içerik." $count }}
+            {{- end }}
             <p class="category-description">{{ $description }}</p>
         </div>
         <div class="category-footer">
-            <a href="{{ $permalink }}" class="category-link">
+            <a href="{{ $url | relURL }}" class="category-link">
                 Yazıları Gör
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
             </a>
         </div>
     </div>
     {{- end }}
+    {{- end }}
 </div>
 
 {{- end }}{{/* end main */ -}}
-

@@ -1,100 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Ana Sayfa on Centrion</title>
-    <link>https://centrion.blog/tr/</link>
-    <description>Recent content in Ana Sayfa on Centrion</description>
+    <title>Trs on Centrion</title>
+    <link>http://localhost:1313/tr/</link>
+    <description>Recent content in Trs on Centrion</description>
     <image>
       <title>Centrion</title>
-      <url>https://centrion.blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://centrion.blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.152.2</generator>
     <language>tr</language>
-    <lastBuildDate>Sun, 09 Nov 2025 00:23:00 +0300</lastBuildDate>
-    <atom:link href="https://centrion.blog/tr/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Sıfır Güven Mimarisi ve Geleceğin Trendleri</title>
-      <link>https://centrion.blog/tr/posts/sifir-guven-mimarisi-ve-gelecegin-trendleri/</link>
-      <pubDate>Sun, 09 Nov 2025 00:23:00 +0300</pubDate>
-      <guid>https://centrion.blog/tr/posts/sifir-guven-mimarisi-ve-gelecegin-trendleri/</guid>
-      <description>Sıfır Güven mimarisi, yapay zeka destekli güvenlik çözümleri ve gelecekteki siber güvenlik trendleri hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Bulut Güvenliği ve Veri Koruma</title>
-      <link>https://centrion.blog/tr/posts/bulut-guvenligi-ve-veri-koruma/</link>
-      <pubDate>Sun, 09 Nov 2025 00:22:00 +0300</pubDate>
-      <guid>https://centrion.blog/tr/posts/bulut-guvenligi-ve-veri-koruma/</guid>
-      <description>Bulut bilişimde güvenlik önlemleri, veri koruma stratejileri ve en iyi uygulamalar hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Sızma Testi Temelleri</title>
-      <link>https://centrion.blog/tr/posts/sizma-testi-temelleri/</link>
-      <pubDate>Sun, 09 Nov 2025 00:21:00 +0300</pubDate>
-      <guid>https://centrion.blog/tr/posts/sizma-testi-temelleri/</guid>
-      <description>Sızma testi (pentest) temelleri, metodolojileri ve araçları hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>İleri Düzey Ağ Güvenliği</title>
-      <link>https://centrion.blog/tr/posts/ileri-duzey-ag-guvenligi/</link>
-      <pubDate>Sun, 09 Nov 2025 00:20:00 +0300</pubDate>
-      <guid>https://centrion.blog/tr/posts/ileri-duzey-ag-guvenligi/</guid>
-      <description>İleri düzey ağ güvenliği kavramları, tehditler ve koruma yöntemleri hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Sosyal Mühendislik Saldırıları ve Savunma</title>
-      <link>https://centrion.blog/tr/posts/sosyal-muhendislik-saldirilari/</link>
-      <pubDate>Sun, 09 Nov 2025 00:19:00 +0300</pubDate>
-      <guid>https://centrion.blog/tr/posts/sosyal-muhendislik-saldirilari/</guid>
-      <description>Sosyal mühendislik saldırıları, türleri ve bu saldırılara karşı korunma yöntemleri hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Kriptoloji ve Şifreleme Teknikleri</title>
-      <link>https://centrion.blog/tr/posts/kriptoloji-ve-sifreleme-teknikleri/</link>
-      <pubDate>Sun, 09 Nov 2025 00:18:00 +0300</pubDate>
-      <guid>https://centrion.blog/tr/posts/kriptoloji-ve-sifreleme-teknikleri/</guid>
-      <description>Temel kriptoloji kavramları, şifreleme teknikleri ve kriptografinin günlük hayattaki kullanımları hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Zararlı Yazılımlara Karşı Savunma</title>
-      <link>https://centrion.blog/tr/posts/zararli-yazilimlara-karsi-savunma/</link>
-      <pubDate>Sun, 09 Nov 2025 00:17:00 +0300</pubDate>
-      <guid>https://centrion.blog/tr/posts/zararli-yazilimlara-karsi-savunma/</guid>
-      <description>Zararlı yazılım türleri, bulaşma yolları ve korunma yöntemleri hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Ağ Güvenliği ve VPN Kullanımı</title>
-      <link>https://centrion.blog/tr/posts/ag-guvenligi-ve-vpn/</link>
-      <pubDate>Sun, 09 Nov 2025 00:16:00 +0300</pubDate>
-      <guid>https://centrion.blog/tr/posts/ag-guvenligi-ve-vpn/</guid>
-      <description>Ev ve iş ağlarınızı güvenli hale getirme ve VPN kullanımının önemi hakkında kapsamlı rehber.</description>
-    </item>
-    <item>
-      <title>Kişisel Verilerinizi Koruma Yöntemleri</title>
-      <link>https://centrion.blog/tr/posts/kisisel-veri-guvenligi/</link>
-      <pubDate>Sun, 09 Nov 2025 00:15:00 +0300</pubDate>
-      <guid>https://centrion.blog/tr/posts/kisisel-veri-guvenligi/</guid>
-      <description>Kişisel verilerinizi korumak için uygulayabileceğiniz etkili yöntemler ve gizlilik ipuçları.</description>
-    </item>
-    <item>
-      <title>İnternet Güvenliği Temelleri</title>
-      <link>https://centrion.blog/tr/posts/internet-guvenligi-temelleri/</link>
-      <pubDate>Sun, 09 Nov 2025 00:14:00 +0300</pubDate>
-      <guid>https://centrion.blog/tr/posts/internet-guvenligi-temelleri/</guid>
-      <description>Yeni başlayanlar için temel internet güvenlik ipuçları ve güvenli dijital alışkanlıklar.</description>
-    </item>
-    <item>
-      <title>Temel Siber Güvenlik Önlemleri</title>
-      <link>https://centrion.blog/tr/posts/ilk-yazi/</link>
-      <pubDate>Sun, 09 Nov 2025 00:12:00 +0300</pubDate>
-      <guid>https://centrion.blog/tr/posts/ilk-yazi/</guid>
-      <description>Günlük dijital yaşamınızda uygulayabileceğiniz temel siber güvenlik önlemleri ve ipuçları.</description>
-    </item>
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Profil Ayarları</title>
-      <link>https://centrion.blog/tr/profile/</link>
+      <link>http://localhost:1313/tr/profile/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://centrion.blog/tr/profile/</guid>
+      <guid>http://localhost:1313/tr/profile/</guid>
       <description></description>
     </item>
   </channel>

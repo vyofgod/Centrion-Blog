@@ -102,10 +102,6 @@ params:
     enabled: true # needs to be explicitly set
     title: "Merhaba, Ben VyOfGod"
     subtitle: "Web Geliştirici & Sızma Testi Uzmanı | Dijital Sistemleri Kuruyor & Kırıyorum"
-    imageUrl: "/logo.png"
-    imageWidth: 160
-    imageHeight: 160
-    imageTitle: "Profil Fotoğrafı"
     buttons:
       - name: Yazılar
         url: /posts/
@@ -182,10 +178,6 @@ languages:
         enabled: true
         title: "Merhaba, Ben VyOfGod"
         subtitle: "Web Geliştirici & Sızma Testi Uzmanı | Dijital Sistemleri Kuruyor & Kırıyorum"
-        imageUrl: "/logo.png"
-        imageWidth: 160
-        imageHeight: 160
-        imageTitle: "Profil Fotoğrafı"
         buttons:
           - name: Yazılar
             url: /tr/posts/
