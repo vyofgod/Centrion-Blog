@@ -1,0 +1,145 @@
+# Netlify Configuration for Centrion Blog
+# Enhanced security and performance settings
+
+[build]
+  publish = "public"
+  command = "hugo --gc --minify"
+
+[build.environment]
+  HUGO_VERSION = "0.152.2"
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
+
+# Security headers (backup if _headers doesn't work)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Content Security Policy
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://giscus.app https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://giscus.app https://nnmvygwcuagrvnkjdzcw.supabase.co; frame-src https://giscus.app; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
+    
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=()"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    
+    # Remove server info
+    X-Powered-By = ""
+    Server = ""
+
+# Cache static assets aggressively
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Don't cache HTML
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Redirect HTTP to HTTPS
+[[redirects]]
+  from = "http://centrion.blog/*"
+  to = "https://centrion.blog/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.centrion.blog/*"
+  to = "https://centrion.blog/:splat"
+  status = 301
+  force = true
+
+# Remove www subdomain
+[[redirects]]
+  from = "https://www.centrion.blog/*"
+  to = "https://centrion.blog/:splat"
+  status = 301
+  force = true
+
+# Custom 404 page
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# DDoS Protection (Netlify built-in)
+# Rate limiting handled by Netlify automatically
+
+# WAF Rules - Block malicious requests
+# Block SQL injection attempts
+[[redirects]]
+  from = "/*"
+  to = "/403.html"
+  status = 403
+  force = false
+  conditions = {query = ["*SELECT*", "*INSERT*", "*UPDATE*", "*DELETE*", "*DROP*", "*UNION*", "*--*", "*;--*", "*'OR'*", "*1=1*"]}
+
+# Block XSS attempts
+[[redirects]]
+  from = "/*"
+  to = "/403.html"
+  status = 403
+  force = false
+  conditions = {query = ["*<script*", "*javascript:*", "*onerror*", "*onload*", "*alert(*", "*eval(*"]}
+
+# Block path traversal
+[[redirects]]
+  from = "/*"
+  to = "/403.html"
+  status = 403
+  force = false
+  conditions = {path = ["*../*", "*..\\*", "*etc/passwd*", "*windows/system32*"]}
+
+# Block common attack tools user agents
+[[redirects]]
+  from = "/*"
+  to = "/403.html"
+  status = 403
+  force = false
+  conditions = {headers = {User-Agent = "*sqlmap*,*nikto*,*nmap*,*masscan*,*havij*,*nessus*,*burp*,*acunetix*,*metasploit*"}}
+
+# Block suspicious file extensions
+[[redirects]]
+  from = "/*.php"
+  to = "/403.html"
+  status = 403
+  force = true
+
+[[redirects]]
+  from = "/*.asp"
+  to = "/403.html"
+  status = 403
+  force = true
+
+[[redirects]]
+  from = "/*.aspx"
+  to = "/403.html"
+  status = 403
+  force = true
+
+[[redirects]]
+  from = "/*.cgi"
+  to = "/403.html"
+  status = 403
+  force = true
+
+[[redirects]]
+  from = "/*.jsp"
+  to = "/403.html"
+  status = 403
+  force = true

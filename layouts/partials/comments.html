@@ -1,0 +1,77 @@
+{{- /* Comments using Giscus */ -}}
+{{- if and site.Params.comments (not .Params.disableComments) -}}
+<div class="comments-section">
+    <div class="comments-header">
+        <h3>Yorumlar</h3>
+        <p>GitHub ile giriş yaparak yorum yapabilirsiniz</p>
+    </div>
+    
+    <div class="giscus-wrapper">
+        <script src="https://giscus.app/client.js"
+                data-repo="{{ site.Params.giscus.repo }}"
+                data-repo-id="{{ site.Params.giscus.repoID }}"
+                data-category="{{ site.Params.giscus.category }}"
+                data-category-id="{{ site.Params.giscus.categoryID }}"
+                data-mapping="{{ default "pathname" site.Params.giscus.mapping }}"
+                data-strict="{{ default "0" site.Params.giscus.strict }}"
+                data-reactions-enabled="{{ default "1" site.Params.giscus.reactionsEnabled }}"
+                data-emit-metadata="{{ default "0" site.Params.giscus.emitMetadata }}"
+                data-input-position="{{ default "top" site.Params.giscus.inputPosition }}"
+                data-theme="{{ default "preferred_color_scheme" site.Params.giscus.theme }}"
+                data-lang="{{ default "tr" site.Params.giscus.lang }}"
+                data-loading="{{ default "lazy" site.Params.giscus.loading }}"
+                crossorigin="anonymous"
+                async>
+        </script>
+    </div>
+</div>
+
+{{- /* Theme switcher for Giscus */ -}}
+<script>
+    // Giscus tema değişimi
+    function setGiscusTheme(theme) {
+        const iframe = document.querySelector('.giscus-frame');
+        if (iframe) {
+            iframe.contentWindow.postMessage(
+                { giscus: { setConfig: { theme: theme } } },
+                'https://giscus.app'
+            );
+        }
+    }
+
+    // Tema değiştiğinde Giscus'u güncelle
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            setTimeout(() => {
+                const currentTheme = document.body.className;
+                const giscusTheme = currentTheme.includes('dark') 
+                    ? 'dark' 
+                    : 'light';
+                setGiscusTheme(giscusTheme);
+            }, 100);
+        });
+    }
+
+    // Sayfa yüklendiğinde doğru temayı ayarla
+    document.addEventListener('DOMContentLoaded', function() {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('pref-theme');
+        const currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+        
+        // Giscus yüklenene kadar bekle
+        const observer = new MutationObserver(function(mutations) {
+            const iframe = document.querySelector('.giscus-frame');
+            if (iframe) {
+                setGiscusTheme(currentTheme);
+                observer.disconnect();
+            }
+        });
+        
+        const giscusWrapper = document.querySelector('.giscus-wrapper');
+        if (giscusWrapper) {
+            observer.observe(giscusWrapper, { childList: true, subtree: true });
+        }
+    });
+</script>
+{{- end -}}

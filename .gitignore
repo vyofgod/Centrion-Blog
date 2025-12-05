@@ -1,0 +1,62 @@
+# Hugo build artifacts
+/public/
+/resources/_gen/
+/assets/jsconfig.json
+hugo_stats.json
+.hugo_build.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+
+# Security - Do NOT commit sensitive data
+*.env
+*.env.local
+*.env.production
+.env*
+config.production.yaml
+secrets.yaml
+*.pem
+*.key
+*.crt
+*.pfx
+.htpasswd
+
+# Dependencies
+node_modules/
+vendor/
+.npm/
+.yarn/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Security scan results
+/açık/
+security-reports/
+scan-results/
+retire-js-*.html
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+.temp/
+
+# Backup files
+*.bak
+*.backup
+*~.nib
+view-counter-api/

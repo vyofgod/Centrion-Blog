@@ -1,12 +1,12 @@
-baseURL: "https://vyofgod.github.io/"
+baseURL: "https://centrion.blog/"
 title: "Centrion"
 theme: "PaperMod"
 defaultContentLanguage: "tr"
 defaultContentLanguageInSubdir: false
 
 taxonomies:
-  category: Categories
-  tag: Tags
+  category: categories
+  tag: tags
 
 pagination:
   pagerSize: 5
@@ -22,12 +22,42 @@ minify:
   disableXML: true
   minifyOutput: true
 
+# Security settings
+security:
+  enableInlineShortcodes: false
+  exec:
+    allow: ['^(dart-)?sass(-embedded)?$', '^go$', '^npx$', '^postcss$', '^tailwindcss$']
+    osEnv: ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\w+|(XDG_CONFIG_)?HOME|USERPROFILE|SSH_AUTH_SOCK|DISPLAY|LANG|SYSTEMDRIVE)$']
+  funcs:
+    getenv: ['^HUGO_', '^CI$']
+  http:
+    methods: ['(?i)GET|POST']
+    urls: ['.*']
+  
+# Privacy settings
+privacy:
+  disqus:
+    disable: true
+  googleAnalytics:
+    anonymizeIP: true
+    respectDoNotTrack: true
+    useSessionStorage: true
+  instagram:
+    disable: true
+  twitter:
+    enableDNT: true
+  vimeo:
+    disable: true
+  youtube:
+    privacyEnhanced: true
+
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: "Centrion"
   description: "Ağ güvenliği, veri koruma ve güvenlik en iyi uygulamalarını kapsayan siber güvenlik blogu"
   keywords: [Blog, Portföy, PaperMod]
   author: "VyOfGod"
+  mainSections: ["posts"]
   # author: ["Me", "You"] # multiple authors
   images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
@@ -44,23 +74,26 @@ params:
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
-  comments: false
+  comments: true
   hidemeta: false
   hideSummary: false
-  showtoc: false
+  showtoc: true
   tocopen: false
 
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    favicon: "/favicon.gif"
+    favicon16x16: "/favicon.gif"
+    favicon32x32: "/favicon.gif"
+    apple_touch_icon: "/favicon.gif"
+    safari_pinned_tab: "/favicon.gif"
+  
+  customJS:
+    - js/typing-animation.js
 
   label:
-    text: "Ana Sayfa"
+    text: "Centrion"
     icon: /apple-touch-icon.png
     iconHeight: 50
 
@@ -69,10 +102,13 @@ params:
     enabled: true # needs to be explicitly set
     title: "Merhaba, Ben VyOfGod"
     subtitle: "Web Geliştirici & Sızma Testi Uzmanı | Dijital Sistemleri Kuruyor & Kırıyorum"
-    imageUrl: "/logo.png"
-    imageWidth: 160
-    imageHeight: 160
-    imageTitle: "Profil Fotoğrafı"
+    buttons:
+      - name: Yazılar
+        url: /posts/
+      - name: Kategoriler
+        url: /categories/
+      - name: Etiketler
+        url: /tags/
 
   # home-info mode
   homeInfoParams:
@@ -82,6 +118,25 @@ params:
   socialIcons:
     - name: "github"
       url: "https://github.com/vyofgod"
+
+  # Hide footer
+  hideFooter: true
+
+  # Giscus Comments Configuration
+  # Visit https://giscus.app to generate your configuration
+  giscus:
+    repo: "vyofgod/Centrion-Blog"  # GitHub repo (owner/repo)
+    repoID: "R_kgDOQSzwhg"  # Get from giscus.app
+    category: "General"  # Discussion category name
+    categoryID: "DIC_kwDOQSzwhs4CxuuC"  # Get from giscus.app
+    mapping: "pathname"  # Use page pathname for discussion mapping
+    strict: "0"  # Use strict title matching
+    reactionsEnabled: "1"  # Enable reactions
+    emitMetadata: "0"  # Emit discussion metadata
+    inputPosition: "bottom"  # Comment box position (top/bottom)
+    theme: "preferred_color_scheme"  # Auto theme based on site theme
+    lang: "tr"  # Language (tr for Turkish)
+    loading: "lazy"  # Lazy load comments
 
   analytics:
     google:
@@ -103,10 +158,13 @@ params:
     shouldSort: true
     location: 0
     distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
+    threshold: 0.3
+    minMatchCharLength: 2
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
-    keys: ["title", "permalink", "summary", "content"]
+    keys: ["title", "summary", "content"]
+    ignoreLocation: true
+    useExtendedSearch: false
+    findAllMatches: false
 
 languages:
   tr:
@@ -114,16 +172,25 @@ languages:
     weight: 1
     title: "Centrion"
     params:
+      showtoc: true
+      tocopen: false
       profileMode:
         enabled: true
         title: "Merhaba, Ben VyOfGod"
         subtitle: "Web Geliştirici & Sızma Testi Uzmanı | Dijital Sistemleri Kuruyor & Kırıyorum"
-        imageUrl: "/logo.png"
-        imageWidth: 160
-        imageHeight: 160
-        imageTitle: "Profil Fotoğrafı"
+        buttons:
+          - name: Yazılar
+            url: /tr/posts/
+          - name: Kategoriler
+            url: /tr/categories/
+          - name: Etiketler
+            url: /tr/tags/
     menu:
       main:
+        - identifier: posts
+          name: "Yazılar"
+          url: "/posts/"
+          weight: 5
         - identifier: categories
           name: "Kategoriler"
           url: "/categories/"
